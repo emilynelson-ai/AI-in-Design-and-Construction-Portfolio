@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI in AEC Use Cases | AI in Design & Construction Portfolio</title>
+  <meta name="description" content="Projects, assignments, and examples of AI in architecture, engineering, and construction." />
+  <style>
+    :root {
+      --coffee-bean: #210f04;
+      --dark-walnut: #452103;
+      --dark-garnet: #690500;
+      --chocolate-brown: #934b00;
+      --copperwood: #bb6b00;
+      --sand: #f4ede6;
+      --white: #fffdfa;
+      --shadow: 0 18px 44px rgba(0, 0, 0, 0.14);
+      --radius: 22px;
+      --max-width: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #f7f1eb 0%, #efe4d8 100%);
+      color: var(--coffee-bean);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max-width), calc(100% - 2rem)); margin: 0 auto; }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255,253,250,0.88); backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(33,15,4,0.08);
+    }
+    .nav-wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 0; }
+    .brand { font-size: 1.05rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+    .brand span { display: block; margin-top: 0.15rem; font-size: 0.78rem; color: var(--chocolate-brown); letter-spacing: 0.14em; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .nav-links a { padding: 0.7rem 1rem; border-radius: 999px; font-size: 0.92rem; font-weight: 700; }
+    .nav-links a:hover, .nav-links a:focus-visible { background: rgba(147,75,0,0.12); outline: none; }
+    .nav-links .active { background: var(--coffee-bean); color: var(--white); }
+
+    .hero { padding: 5rem 0 3rem; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; align-items: stretch; }
+    .hero-main, .hero-side {
+      border-radius: 30px; overflow: hidden; box-shadow: var(--shadow); position: relative;
+    }
+    .hero-main {
+      background: linear-gradient(135deg, var(--coffee-bean), var(--dark-walnut) 52%, var(--dark-garnet));
+      color: var(--white); padding: 2.5rem;
+    }
+    .eyebrow {
+      display: inline-block; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.75rem; font-weight: 800;
+      color: #ffd8b0; margin-bottom: 1rem;
+    }
+    h1 { font-size: clamp(2.4rem, 7vw, 5rem); line-height: 0.96; text-transform: uppercase; margin-bottom: 1rem; }
+    .hero-main p { max-width: 58ch; color: rgba(255,253,250,0.86); }
+    .hero-side {
+      background: rgba(255,253,250,0.84); border: 1px solid rgba(33,15,4,0.08); padding: 1.4rem;
+      display: grid; gap: 1rem;
+    }
+    .mini-card {
+      border-radius: 20px; padding: 1rem; background: linear-gradient(180deg, rgba(187,107,0,0.12), rgba(147,75,0,0.04));
+      border: 1px solid rgba(147,75,0,0.12);
+    }
+    .mini-card h3 { margin-bottom: 0.45rem; font-size: 1rem; color: var(--dark-walnut); }
+    .mini-card p { color: rgba(33,15,4,0.8); font-size: 0.93rem; }
+
+    .section { padding: 1rem 0 4rem; }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1.5rem; }
+    .section-heading span { display: inline-block; margin-bottom: 0.45rem; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.74rem; font-weight: 800; color: var(--chocolate-brown); }
+    .section-heading h2 { font-size: clamp(1.9rem, 4vw, 3.2rem); text-transform: uppercase; line-height: 1.02; }
+    .section-heading p { max-width: 56ch; color: rgba(33,15,4,0.76); }
+
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+    .project-card {
+      background: rgba(255,253,250,0.9); border: 1px solid rgba(33,15,4,0.08); border-radius: 24px; padding: 1.35rem;
+      box-shadow: 0 10px 28px rgba(33,15,4,0.07); position: relative; overflow: hidden;
+    }
+    .project-card::after {
+      content: ""; position: absolute; right: -25px; top: -25px; width: 100px; height: 100px;
+      background: radial-gradient(circle, rgba(187,107,0,0.18), transparent 65%);
+    }
+    .project-card h3 { font-size: 1.25rem; margin-bottom: 0.65rem; line-height: 1.08; }
+    .project-card p { color: rgba(33,15,4,0.78); margin-bottom: 0.9rem; }
+    .tag {
+      display: inline-block; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; font-weight: 800;
+      color: var(--dark-garnet); margin-bottom: 0.7rem;
+    }
+    .list { list-style: none; display: grid; gap: 0.65rem; }
+    .list li { position: relative; padding-left: 1rem; color: rgba(33,15,4,0.84); font-size: 0.94rem; }
+    .list li::before { content: ""; position: absolute; left: 0; top: 0.63rem; width: 7px; height: 7px; border-radius: 50%; background: var(--copperwood); }
+
+    .feature-layout { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 1.2rem; }
+    .card {
+      background: rgba(255,253,250,0.88); border: 1px solid rgba(33,15,4,0.08); border-radius: 24px; padding: 1.5rem;
+      box-shadow: 0 10px 28px rgba(33,15,4,0.07);
+    }
+    .card h3 { font-size: 1.28rem; margin-bottom: 0.75rem; }
+    .card p { color: rgba(33,15,4,0.78); }
+
+    .template-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .template-card {
+      background: linear-gradient(180deg, rgba(187,107,0,0.12), rgba(147,75,0,0.04)); border: 1px solid rgba(147,75,0,0.12);
+      border-radius: 20px; padding: 1rem;
+    }
+    .template-card h4 { margin-bottom: 0.5rem; color: var(--dark-walnut); }
+    .template-card p { font-size: 0.92rem; color: rgba(33,15,4,0.8); }
+
+    .footer-box {
+      margin: 0 0 3rem; background: linear-gradient(135deg, var(--dark-garnet), var(--coffee-bean));
+      color: var(--white); border-radius: 28px; padding: 2rem; box-shadow: var(--shadow);
+    }
+    .footer-box p { margin-top: 0.8rem; color: rgba(255,253,250,0.84); max-width: 58ch; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; padding: 0.95rem 1.25rem; border-radius: 999px;
+      background: var(--copperwood); color: var(--white); font-weight: 700; margin-top: 1.2rem;
+    }
+    .btn:hover, .btn:focus-visible { background: #cb7a10; outline: none; }
+
+    footer { padding-bottom: 2rem; }
+    .footer-bar {
+      border-top: 1px solid rgba(33,15,4,0.12); padding-top: 1rem; display: flex; justify-content: space-between; flex-wrap: wrap;
+      gap: 1rem; color: rgba(33,15,4,0.68); font-size: 0.92rem;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid, .feature-layout, .gallery-grid, .template-grid { grid-template-columns: 1fr; }
+      .section-heading { flex-direction: column; align-items: start; }
+    }
+    @media (max-width: 700px) {
+      .nav-wrap { flex-direction: column; align-items: flex-start; }
+      .hero-main, .hero-side, .project-card, .card, .footer-box { padding: 1.4rem; }
+      .hero { padding-top: 3.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">AI in Design &amp; Construction<span>Graduate Portfolio</span></a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="news.html">Weekly AI News</a>
+        <a class="active" href="use-cases.html">AI in AEC Use Cases</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <article class="hero-main">
+          <div class="eyebrow">Course Assignments and Projects</div>
+          <h1>AI in AEC Use Cases</h1>
+          <p>
+            This page showcases class assignments, experiments, and project examples related to AI in architecture, engineering, and construction. Each entry is meant to briefly explain what the artifact represents and why it is helpful, important, or relevant to professional practice.
+          </p>
+        </article>
+
+        <aside class="hero-side">
+          <div class="mini-card">
+            <h3>Gallery Approach</h3>
+            <p>Use project cards to organize assignments clearly and make the page easy to scan.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Professional Framing</h3>
+            <p>For each item, explain not only what you made, but why it matters in real AEC workflows.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Visual Support</h3>
+            <p>Add screenshots, diagrams, process visuals, or thumbnails as your portfolio grows.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span>Project Gallery</span>
+            <h2>Sample Assignment Cards</h2>
+          </div>
+          <p>
+            These cards are starter placeholders. Replace the headings and descriptions with your actual class assignments, research exercises, or final project work.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="project-card">
+            <div class="tag">Use Case 01</div>
+            <h3>Predictive Design Support</h3>
+            <p>Document an assignment that explored how AI can support early-stage design choices, option comparison, or performance-driven thinking.</p>
+            <ul class="list">
+              <li>What the assignment involved</li>
+              <li>Which tool, method, or concept was used</li>
+              <li>Why it matters in design workflows</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="tag">Use Case 02</div>
+            <h3>Automated Documentation</h3>
+            <p>Use this card for work related to text generation, report preparation, project summaries, or communication support.</p>
+            <ul class="list">
+              <li>Describe the workflow or task</li>
+              <li>Share the result or output</li>
+              <li>Explain the value to AEC teams</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="tag">Use Case 03</div>
+            <h3>Construction Planning Insight</h3>
+            <p>Highlight an example involving sequencing, logistics, safety review, scheduling, or another construction-related application.</p>
+            <ul class="list">
+              <li>Brief project summary</li>
+              <li>Main lesson learned</li>
+              <li>Relevance to construction practice</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="tag">Use Case 04</div>
+            <h3>Visual Analysis or Classification</h3>
+            <p>Use for assignments involving image analysis, object recognition, visual data interpretation, or pattern detection.</p>
+            <ul class="list">
+              <li>Describe the data or imagery</li>
+              <li>Explain how AI was involved</li>
+              <li>Connect the work to built environment use</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="tag">Use Case 05</div>
+            <h3>Ethics and Professional Responsibility</h3>
+            <p>Include reflections or written work that examined bias, trust, authorship, labor, or responsible implementation of AI.</p>
+            <ul class="list">
+              <li>Summarize the issue or argument</li>
+              <li>State your perspective</li>
+              <li>Explain its importance in practice</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="tag">Use Case 06</div>
+            <h3>Final Project or Synthesis</h3>
+            <p>Use for a culminating assignment that brings together course ideas, methods, and reflections into one larger project.</p>
+            <ul class="list">
+              <li>Project objective</li>
+              <li>Process and method</li>
+              <li>Main outcomes and relevance</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span>Page Strategy</span>
+            <h2>How to Present Each Project</h2>
+          </div>
+          <p>
+            A simple structure helps readers understand each artifact quickly. This is especially helpful when faculty or classmates are scanning multiple projects in one sitting.
+          </p>
+        </div>
+
+        <div class="feature-layout">
+          <article class="card">
+            <h3>Recommended Project Elements</h3>
+            <ul class="list">
+              <li>Project title</li>
+              <li>Short description of the assignment</li>
+              <li>Tool, method, or AI concept used</li>
+              <li>Screenshot, diagram, or other visual</li>
+              <li>Why the project is helpful or relevant</li>
+            </ul>
+          </article>
+
+          <div class="template-grid">
+            <article class="template-card">
+              <h4>What It Is</h4>
+              <p>Briefly name and describe the assignment or project artifact in 1–2 sentences.</p>
+            </article>
+            <article class="template-card">
+              <h4>How AI Was Used</h4>
+              <p>Explain whether AI supported analysis, automation, ideation, visualization, or another task.</p>
+            </article>
+            <article class="template-card">
+              <h4>Why It Matters</h4>
+              <p>Connect the work to design quality, efficiency, communication, risk reduction, or other AEC values.</p>
+            </article>
+            <article class="template-card">
+              <h4>Reflection</h4>
+              <p>Share what you learned, what worked well, and what questions remain for future exploration.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span>Optional Expansion</span>
+            <h2>Ways to Grow This Page</h2>
+          </div>
+          <p>
+            You can keep this page simple for now or expand it later as your portfolio develops.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="project-card">
+            <div class="tag">Enhancement</div>
+            <h3>Project Detail Pages</h3>
+            <p>Create a dedicated HTML page for major assignments and link to them from the main gallery.</p>
+          </article>
+          <article class="project-card">
+            <div class="tag">Enhancement</div>
+            <h3>Filtered Categories</h3>
+            <p>Group projects by themes like design, construction, ethics, communication, or workflow automation.</p>
+          </article>
+          <article class="project-card">
+            <div class="tag">Enhancement</div>
+            <h3>Embedded Media</h3>
+            <p>Add PDFs, presentation slides, images, videos, or interactive visuals to enrich each entry.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="footer-box">
+        <div class="eyebrow">Back to Start</div>
+        <h2>Return to the Homepage</h2>
+        <p>
+          With these pages in place, you now have the structure for a complete course portfolio that can be uploaded directly to GitHub Pages.
+        </p>
+        <a class="btn" href="index.html">Go to Homepage</a>
+      </div>
+
+      <footer>
+        <div class="footer-bar">
+          <p>© 2026 Your Name · AI in Design and Construction Portfolio</p>
+          <p>Built for GitHub Pages</p>
+        </div>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>
