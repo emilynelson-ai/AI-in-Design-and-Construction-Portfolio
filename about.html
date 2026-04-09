@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Me | AI in Design & Construction Portfolio</title>
-  <meta name="description" content="Professional background and academic interests in AI, design, and construction." />
+  <meta name="description" content="About Emily Nelson, Construction Contract Administrator, graduate student, and AEC professional exploring AI in design and construction." />
   <style>
     :root {
       --coffee-bean: #210f04;
@@ -29,6 +29,7 @@
       line-height: 1.6;
     }
     a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
     .container { width: min(var(--max-width), calc(100% - 2rem)); margin: 0 auto; }
 
     .site-header {
@@ -84,27 +85,12 @@
       gap: 1rem;
       min-height: 420px;
     }
-    .portrait-placeholder {
-      border-radius: 24px;
-      background:
-        radial-gradient(circle at 50% 28%, rgba(187,107,0,0.22), transparent 15%),
-        radial-gradient(circle at 50% 38%, rgba(105,5,0,0.14), transparent 26%),
-        linear-gradient(180deg, rgba(147,75,0,0.12), rgba(33,15,4,0.04));
-      border: 1px solid rgba(33,15,4,0.08);
-      position: relative;
+    .portrait-photo {
+      width: 100%;
       min-height: 320px;
-      overflow: hidden;
-    }
-    .portrait-placeholder::before {
-      content: "Your Professional Photo";
-      position: absolute; inset: auto 0 1.25rem 0; text-align: center;
-      font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dark-walnut);
-    }
-    .portrait-placeholder::after {
-      content: "";
-      position: absolute; left: 50%; top: 46%; transform: translate(-50%, -50%);
-      width: 180px; height: 180px; border-radius: 50%; background: rgba(69,33,3,0.12);
-      box-shadow: 0 120px 0 35px rgba(69,33,3,0.1);
+      object-fit: cover;
+      border-radius: 24px;
+      border: 1px solid rgba(33,15,4,0.08);
     }
     .portrait-note {
       background: rgba(255,253,250,0.86); border: 1px solid rgba(33,15,4,0.07); border-radius: 18px; padding: 1rem;
@@ -144,6 +130,42 @@
       background: var(--dark-garnet); color: var(--white); margin-bottom: 0.8rem;
     }
 
+    .strengths {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .strength-pill {
+      text-align: center;
+      padding: 0.9rem 0.75rem;
+      background: linear-gradient(180deg, rgba(187,107,0,0.14), rgba(147,75,0,0.05));
+      border: 1px solid rgba(147,75,0,0.14);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--dark-walnut);
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+    .inline-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      color: var(--dark-garnet);
+    }
+    .inline-link:hover,
+    .inline-link:focus-visible {
+      color: var(--chocolate-brown);
+      outline: none;
+    }
+
     .footer-box {
       margin: 0 0 3rem;
       background: linear-gradient(135deg, var(--dark-garnet), var(--coffee-bean));
@@ -157,7 +179,7 @@
     }
 
     @media (max-width: 950px) {
-      .hero-grid, .content-grid, .timeline { grid-template-columns: 1fr; }
+      .hero-grid, .content-grid, .timeline, .strengths { grid-template-columns: 1fr; }
       .section-heading { flex-direction: column; align-items: start; }
     }
     @media (max-width: 700px) {
@@ -185,22 +207,21 @@
       <div class="container hero-grid">
         <article class="hero-card">
           <div class="eyebrow">Professional Introduction</div>
-          <h1>About Me</h1>
+          <h1>Emily Nelson</h1>
           <p>
-            This page introduces who I am, what I am studying, and how my interests in artificial intelligence,
-            design thinking, and construction practice come together in this graduate course.
+            I am a Construction Contract Administrator at LS3P and a graduate student in the M.S. in Architectural Engineering program at the University of Kansas. My work sits at the intersection of design and construction, where I collaborate closely with owners, designers, and contractors to advocate for project goals and help deliver successful, well-executed projects.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#bio">Read My Background</a>
-            <a class="btn btn-secondary" href="use-cases.html">See My Projects</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/emily-augustine-nelson/" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
           </div>
         </article>
 
         <aside class="portrait-card" aria-label="Professional profile panel">
-          <div class="portrait-placeholder" role="img" aria-label="Placeholder for a professional headshot"></div>
+          <img class="portrait-photo" src="2026 Headshot.jpg" alt="Professional headshot of Emily Nelson" />
           <div class="portrait-note">
-            <strong>Customize This Area</strong>
-            Replace this placeholder with your headshot, a portrait illustration, or a clean professional image that matches the tone of your site.
+            <strong>Construction Contract Administrator · Graduate Student</strong>
+            Based in Durham, North Carolina, with professional experience spanning Colorado and the Carolinas.
           </div>
         </aside>
       </div>
@@ -211,29 +232,29 @@
         <div class="section-heading">
           <div>
             <span>Biography</span>
-            <h2>Who I Am and What I Study</h2>
+            <h2>Built Environment, Collaboration, and Community</h2>
           </div>
           <p>
-            Use this section to present a concise, professional summary of your academic background and your interest in AI within the context of design and construction.
+            To me, the built environment is more than a project. It is a shared commitment to community, collaboration, and long-term impact.
           </p>
         </div>
 
         <div class="content-grid">
           <article class="card">
-            <h3>Suggested Intro Paragraph</h3>
+            <h3>About Me</h3>
             <p>
-              Hello, I’m <strong>[Your Name]</strong>, a graduate student with an interest in how emerging technologies can support more informed, creative, and efficient processes in the built environment. Through this course, I am exploring how AI tools can shape design workflows, communication, analysis, and decision-making in architecture, engineering, and construction.
+              As a Construction Contract Administrator for LS3P, I focus on collaborating closely with all project stakeholders to advocate for project goals and deliver successful, well-executed projects. With nearly a decade of experience spanning from the Carolinas back to my home state of Colorado, my interdisciplinary background bridges the gaps between clients, designers, and contractors.
+            </p>
+            <p style="margin-top: 1rem;">
+              I strive to bring a balanced perspective to every project while fostering collaborative environments where complex projects, and the people behind them, can succeed.
             </p>
           </article>
 
           <article class="card">
-            <h3>What to Include Here</h3>
-            <ul class="list">
-              <li>Your degree program, department, or area of study</li>
-              <li>Your academic or professional background</li>
-              <li>Your interest in AI and why it matters to you</li>
-              <li>What you hope to learn from this course</li>
-            </ul>
+            <h3>Current Role</h3>
+            <p>
+              In construction administration, I represent the design team during construction and serve as a primary point of contact for owners and contractors. My work includes reviewing RFIs, submittals, pay applications, and change order proposals, issuing architect's supplemental instructions and related contract modifications, performing site visits, and documenting project progress and compliance.
+            </p>
           </article>
         </div>
       </div>
@@ -243,29 +264,29 @@
       <div class="container">
         <div class="section-heading">
           <div>
-            <span>Academic Focus</span>
-            <h2>Interests and Goals</h2>
+            <span>Education and Direction</span>
+            <h2>Academic Background and Graduate Goals</h2>
           </div>
           <p>
-            This section helps connect your coursework to larger academic and professional goals, showing how this portfolio fits into your development.
+            My academic path combines engineering fundamentals, construction experience, and an ongoing commitment to deeper technical learning in the built environment.
           </p>
         </div>
 
         <div class="content-grid">
           <article class="card">
-            <h3>Areas of Interest</h3>
+            <h3>Education</h3>
             <ul class="list">
-              <li>AI applications in design ideation and decision support</li>
-              <li>Automation in project communication and documentation</li>
-              <li>Ethics, bias, and responsible use of AI in professional practice</li>
-              <li>Practical AI workflows for the AEC industry</li>
+              <li>M.S. in Architectural Engineering, University of Kansas, expected May 2027</li>
+              <li>Current GPA: 4.0</li>
+              <li>B.S. in Civil Engineering, Iowa State University</li>
+              <li>Cum Laude graduate with a 3.61 GPA</li>
             </ul>
           </article>
 
           <article class="card">
-            <h3>Professional Goals</h3>
+            <h3>Graduate Focus</h3>
             <p>
-              You can use this area to explain where you hope your studies will lead. For example, you might describe an interest in computational design, project strategy, digital practice, construction innovation, or research at the intersection of technology and the built environment.
+              I am currently pursuing my master's degree online through the University of Kansas to build upon my engineering education and develop more specialized technical knowledge of building systems. My long-term interests include construction, sustainability, and research practices that add value to and streamline the transition from design to construction.
             </p>
           </article>
         </div>
@@ -273,18 +294,18 @@
         <div class="timeline">
           <div class="timeline-step">
             <strong>1</strong>
-            <h3>Background</h3>
-            <p>Summarize your academic path and any relevant design, construction, or technology experience.</p>
+            <h3>Engineering Foundation</h3>
+            <p>I chose civil engineering because of the meaningful role engineers play in improving the infrastructure and long-term success of communities.</p>
           </div>
           <div class="timeline-step">
             <strong>2</strong>
-            <h3>Current Focus</h3>
-            <p>Describe what interests you now about AI in design and construction.</p>
+            <h3>Industry Experience</h3>
+            <p>My career has included roles in contracting, estimating, project engineering, and construction administration, giving me perspective across the AEC industry.</p>
           </div>
           <div class="timeline-step">
             <strong>3</strong>
-            <h3>Future Direction</h3>
-            <p>Share how this course connects to your future academic or professional goals.</p>
+            <h3>Future Growth</h3>
+            <p>I am especially interested in sustainability, building systems, and the evolving role of advanced technologies in design and construction practice.</p>
           </div>
         </div>
       </div>
@@ -294,31 +315,77 @@
       <div class="container">
         <div class="section-heading">
           <div>
-            <span>Optional Additions</span>
-            <h2>Links, Resume, and Contact</h2>
+            <span>Professional Experience</span>
+            <h2>Work Across Design and Construction</h2>
           </div>
           <p>
-            Keep this section simple and professional. It can help visitors move beyond the course website if you want to share more about your work.
+            My experience has given me the opportunity to understand the built environment from multiple perspectives and to work side by side with clients, designers, contractors, and subcontractors.
           </p>
         </div>
 
         <div class="content-grid">
           <article class="card">
-            <h3>Recommended Links</h3>
+            <h3>Career Snapshot</h3>
             <ul class="list">
-              <li>LinkedIn profile</li>
-              <li>GitHub profile</li>
-              <li>Resume PDF</li>
-              <li>Email address or contact form</li>
+              <li>LS3P · Construction Contracts Administrator · 2021 to present</li>
+              <li>LS3P · Assistant Construction Administrator · 2020 to 2021</li>
+              <li>Bobbitt · Assistant Project Manager and Estimator · 2019 to 2020</li>
+              <li>Brinkman Construction · Project Engineer · 2017 to 2018</li>
             </ul>
           </article>
 
           <article class="card">
-            <h3>Professional Tone Tip</h3>
+            <h3>Professional Strengths</h3>
             <p>
-              Keep your writing direct and clear. Aim for a balance between personal voice and professional credibility so that the page feels approachable while still polished.
+              My work is grounded in communication, problem solving, organization, adaptability, and a commitment to balancing design intent with the realities of construction. I value collaboration and believe strong project outcomes depend on clear coordination across all stakeholders.
             </p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span>Leadership Approach</span>
+            <h2>CliftonStrengths</h2>
+          </div>
+          <p>
+            These strengths reflect how I approach collaboration, decision-making, and long-term professional growth.
+          </p>
+        </div>
+
+        <div class="strengths">
+          <div class="strength-pill">Strategic</div>
+          <div class="strength-pill">Significance</div>
+          <div class="strength-pill">Competition</div>
+          <div class="strength-pill">Focus</div>
+          <div class="strength-pill">Communication</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span>Connect</span>
+            <h2>Professional Links</h2>
+          </div>
+          <p>
+            You can connect with me professionally through LinkedIn and follow my continued growth at the intersection of engineering, construction, and design.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>LinkedIn</h3>
+          <p>
+            I am passionate about staying at the forefront of industry advancements and about mentoring the next generation of AEC professionals as they navigate an evolving field.
+          </p>
+          <div class="link-row">
+            <a class="inline-link" href="https://www.linkedin.com/in/emily-augustine-nelson/" target="_blank" rel="noopener noreferrer">linkedin.com/in/emily-augustine-nelson/</a>
+          </div>
         </div>
       </div>
     </section>
@@ -328,7 +395,7 @@
         <div class="eyebrow">Next Page</div>
         <h2>Continue to Weekly AI News</h2>
         <p>
-          Once your introduction is in place, the next step is to show how you engaged with current AI developments during the semester.
+          This portfolio continues with weekly analysis of AI developments and their relevance to design, construction, and the broader AEC profession.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="news.html">Go to Weekly AI News</a>
@@ -337,7 +404,7 @@
 
       <footer>
         <div class="footer-bar">
-          <p>© 2026 Your Name · AI in Design and Construction Portfolio</p>
+          <p>© 2026 Emily Nelson · AI in Design and Construction Portfolio</p>
           <p>Built for GitHub Pages</p>
         </div>
       </footer>
