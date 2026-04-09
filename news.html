@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Weekly AI News | AI in Design & Construction Portfolio</title>
-  <meta name="description" content="Weekly AI news summaries, reflections, and course-related analysis." />
+  <meta name="description" content="Week 3 AI news analysis by Emily Nelson on artificial super intelligence, its social implications, and relevance to the AEC industry." />
   <style>
     :root {
       --coffee-bean: #210f04;
@@ -28,6 +28,7 @@
       line-height: 1.6;
     }
     a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
     .container { width: min(var(--max-width), calc(100% - 2rem)); margin: 0 auto; }
 
     .site-header {
@@ -60,8 +61,8 @@
       color: #ffd8b0; margin-bottom: 1rem;
     }
     h1 { font-size: clamp(2.5rem, 7vw, 5rem); line-height: 0.96; text-transform: uppercase; margin-bottom: 1rem; }
-    .hero-card p { max-width: 64ch; color: rgba(255,253,250,0.86); }
-    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1.2rem; margin-top: 1.5rem; }
+    .hero-card p { max-width: 66ch; color: rgba(255,253,250,0.86); }
+    .hero-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
     .hero-mini {
       background: rgba(255,253,250,0.08); border: 1px solid rgba(255,253,250,0.12); border-radius: 20px; padding: 1rem;
     }
@@ -74,7 +75,7 @@
     .section-heading h2 { font-size: clamp(1.9rem, 4vw, 3.2rem); text-transform: uppercase; line-height: 1.02; }
     .section-heading p { max-width: 56ch; color: rgba(33,15,4,0.76); }
 
-    .layout-grid { display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 1.25rem; }
+    .layout-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 1.25rem; }
     .card {
       background: rgba(255,253,250,0.88); border: 1px solid rgba(33,15,4,0.08); border-radius: 24px; padding: 1.5rem;
       box-shadow: 0 10px 28px rgba(33,15,4,0.07);
@@ -85,9 +86,8 @@
     .list li { position: relative; padding-left: 1.1rem; color: rgba(33,15,4,0.84); }
     .list li::before { content: ""; position: absolute; left: 0; top: 0.66rem; width: 7px; height: 7px; border-radius: 50%; background: var(--copperwood); }
 
-    .post-grid { display: grid; gap: 1.1rem; }
     .post-card {
-      background: rgba(255,253,250,0.9); border: 1px solid rgba(33,15,4,0.08); border-radius: 24px; padding: 1.5rem;
+      background: rgba(255,253,250,0.9); border: 1px solid rgba(33,15,4,0.08); border-radius: 24px; padding: 1.6rem;
       box-shadow: 0 10px 28px rgba(33,15,4,0.07);
     }
     .post-top { display: flex; justify-content: space-between; align-items: start; gap: 1rem; margin-bottom: 0.8rem; }
@@ -95,19 +95,32 @@
       display: inline-block; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; font-weight: 800; color: var(--dark-garnet);
       margin-bottom: 0.5rem;
     }
-    .post-card h3 { font-size: 1.4rem; line-height: 1.1; }
+    .post-card h3 { font-size: 1.55rem; line-height: 1.1; }
     .post-date {
       white-space: nowrap; font-size: 0.86rem; font-weight: 700; color: var(--chocolate-brown);
       background: rgba(187,107,0,0.12); padding: 0.45rem 0.7rem; border-radius: 999px;
     }
     .post-card p { color: rgba(33,15,4,0.8); margin-bottom: 0.95rem; }
-    .post-sections { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
-    .post-sections article {
+
+    .analysis-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1rem; }
+    .analysis-box {
       background: linear-gradient(180deg, rgba(187,107,0,0.12), rgba(147,75,0,0.04));
-      border: 1px solid rgba(147,75,0,0.12); border-radius: 18px; padding: 1rem;
+      border: 1px solid rgba(147,75,0,0.12); border-radius: 20px; padding: 1.1rem;
     }
-    .post-sections h4 { font-size: 0.96rem; margin-bottom: 0.45rem; color: var(--dark-walnut); }
-    .post-sections p { font-size: 0.9rem; margin-bottom: 0; }
+    .analysis-box h4 { margin-bottom: 0.55rem; color: var(--dark-walnut); font-size: 1rem; }
+    .analysis-box p { margin-bottom: 0; font-size: 0.95rem; }
+
+    .feature-image {
+      width: 100%; border-radius: 24px; border: 1px solid rgba(33,15,4,0.08); box-shadow: 0 10px 28px rgba(33,15,4,0.07);
+    }
+    .caption {
+      margin-top: 0.8rem; font-size: 0.92rem; color: rgba(33,15,4,0.72);
+    }
+    .link-button {
+      display: inline-flex; align-items: center; justify-content: center; margin-top: 1rem; padding: 0.9rem 1.15rem; border-radius: 999px;
+      background: var(--dark-garnet); color: var(--white); font-weight: 700;
+    }
+    .link-button:hover, .link-button:focus-visible { background: var(--chocolate-brown); outline: none; }
 
     .footer-box {
       margin: 0 0 3rem; background: linear-gradient(135deg, var(--coffee-bean), var(--dark-garnet));
@@ -127,7 +140,7 @@
     }
 
     @media (max-width: 980px) {
-      .hero-grid, .layout-grid, .post-sections { grid-template-columns: 1fr; }
+      .hero-grid, .layout-grid, .analysis-grid { grid-template-columns: 1fr; }
       .section-heading { flex-direction: column; align-items: start; }
     }
     @media (max-width: 700px) {
@@ -155,19 +168,23 @@
     <section class="hero">
       <div class="container">
         <div class="hero-card">
-          <div class="eyebrow">Ongoing Course Analysis</div>
-          <h1>Weekly AI News</h1>
+          <div class="eyebrow">Week 03 AI News Analysis</div>
+          <h1>The Dawn of ASI</h1>
           <p>
-            This page organizes weekly reviews of AI news and emerging developments. It is designed to show what sources I followed, how I summarized each story, and how I connected those developments to design, construction, and the broader AEC industry.
+            This week’s news analysis focuses on artificial super intelligence and its possible future impact on society and construction. The source article explores what ASI is, whether it is feasible, possible timelines for its development, and why alignment, governance, and ethical oversight will matter if systems ever exceed human-level intelligence.
           </p>
           <div class="hero-grid">
             <div class="hero-mini">
-              <h3>Source Tracking</h3>
-              <p>Keep a consistent record of articles, podcasts, newsletters, or videos you reviewed each week.</p>
+              <h3>Main Theme</h3>
+              <p>ASI is presented as a hypothetical stage beyond narrow AI and AGI, where machine intelligence surpasses human capability across nearly every domain.</p>
             </div>
             <div class="hero-mini">
-              <h3>Critical Reflection</h3>
-              <p>Show your own analysis, not just summaries, by explaining why each topic matters and what questions it raises.</p>
+              <h3>Big Question</h3>
+              <p>The article asks not only whether ASI is possible, but also whether humanity can guide its development safely and responsibly.</p>
+            </div>
+            <div class="hero-mini">
+              <h3>AEC Relevance</h3>
+              <p>The implications for design optimization, construction logistics, and workforce transformation make the topic especially important for the built environment.</p>
             </div>
           </div>
         </div>
@@ -178,148 +195,53 @@
       <div class="container">
         <div class="section-heading">
           <div>
-            <span>Page Structure</span>
-            <h2>How to Organize Each Weekly Post</h2>
+            <span>Source and Summary</span>
+            <h2>Week 3 News Source</h2>
           </div>
           <p>
-            A consistent format makes your analysis easier to read and helps the site feel polished. You can repeat the same card structure each week throughout the semester.
+            The analysis below is based on the article “What is ASI (Artificial Super Intelligence)? Is it feasible and when will we achieve it?” and the infographic I created from my AI-generated summary.
           </p>
         </div>
 
         <div class="layout-grid">
           <aside class="card">
-            <h3>Recommended Components</h3>
+            <h3>Source Information</h3>
             <ul class="list">
-              <li>Source title, link, publication, and date</li>
-              <li>Brief summary of the main idea</li>
-              <li>Your reflection or critique</li>
-              <li>A note on relevance to AEC</li>
-              <li>Optional media, diagram, or embedded content</li>
+              <li>Article: What is ASI (Artificial Super Intelligence)? Is it feasible and when will we achieve it?</li>
+              <li>Author: Abhinowww</li>
+              <li>Platform: DEV Community</li>
+              <li>Course: CMGT 895 Week #3 AI News</li>
             </ul>
+            <a class="link-button" href="https://dev.to/abhinowww/what-is-asi-artificial-super-intelligence-is-it-feasible-and-when-will-we-achieve-it-1p1c" target="_blank" rel="noopener noreferrer">Open Original Article</a>
           </aside>
 
-          <div class="post-grid">
-            <article class="post-card">
-              <div class="post-top">
-                <div>
-                  <div class="post-tag">Example Weekly Entry</div>
-                  <h3>Week 01 · AI News Analysis Title</h3>
-                </div>
-                <div class="post-date">Add Date</div>
-              </div>
-              <p>
-                Replace this area with the title of the article, post, podcast, or video you analyzed. Under the title, include a short introduction to the topic and explain why you selected it for the week.
-              </p>
-              <div class="post-sections">
-                <article>
-                  <h4>Summary</h4>
-                  <p>Write 2–4 sentences summarizing the most important information from the source.</p>
-                </article>
-                <article>
-                  <h4>Reflection</h4>
-                  <p>Explain your reaction, critique, or key takeaway in your own words.</p>
-                </article>
-                <article>
-                  <h4>AEC Relevance</h4>
-                  <p>Describe why the topic matters for architecture, engineering, or construction.</p>
-                </article>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <span>Sample Archive</span>
-            <h2>Multi-Week Layout</h2>
-          </div>
-          <p>
-            Below is a sample archive structure. You can duplicate these cards as many times as needed to create a complete semester record.
-          </p>
-        </div>
-
-        <div class="post-grid">
           <article class="post-card">
             <div class="post-top">
               <div>
-                <div class="post-tag">Week 02</div>
-                <h3>AI Policy, Regulation, or Ethics Topic</h3>
+                <div class="post-tag">Emily Nelson · Week 03</div>
+                <h3>The Dawn of ASI: Shaping the Future of Society and Construction</h3>
               </div>
-              <div class="post-date">Add Date</div>
+              <div class="post-date">February 12, 2026</div>
             </div>
             <p>
-              Use this card for a story related to AI governance, labor impacts, professional responsibility, or ethics in design technology.
+              My Week 3 analysis considers ASI as a future stage of artificial intelligence that could exceed human intelligence in problem-solving, creativity, reasoning, and decision-making. The article frames ASI as both a powerful opportunity and a serious risk, depending on whether technical progress is matched by alignment research, governance, and ethical safeguards.
             </p>
-            <div class="post-sections">
-              <article>
-                <h4>Source</h4>
-                <p>Add publication name, link, or source citation here.</p>
+            <div class="analysis-grid">
+              <article class="analysis-box">
+                <h4>Main Findings and Arguments</h4>
+                <p>ASI is described as the stage beyond narrow AI and general intelligence, where systems surpass human capability across domains. The article argues it may become possible through continued computational growth and self-improving architectures, but it also stresses that timelines remain highly uncertain and may range from the 2030s to well beyond 2100.</p>
               </article>
-              <article>
-                <h4>Takeaway</h4>
-                <p>Highlight the most important lesson from the piece.</p>
+              <article class="analysis-box">
+                <h4>Broader Implications for Society</h4>
+                <p>The article presents both utopian and risky futures. On one hand, ASI could help solve major global challenges such as disease, poverty, and climate change. On the other hand, it could create severe disruption if its goals diverge from human values, including existential risk, workforce displacement, and instability across social systems.</p>
               </article>
-              <article>
-                <h4>Discussion</h4>
-                <p>Connect the topic to practice, education, or project delivery in AEC.</p>
+              <article class="analysis-box">
+                <h4>Relevance to the AEC Industry</h4>
+                <p>For architecture, engineering, and construction, ASI could transform design optimization, advanced materials discovery, and planning at a scale currently beyond human capacity. It could also shift many professional roles toward oversight, judgment, and strategy while increasing the importance of ethical standards and governance.</p>
               </article>
-            </div>
-          </article>
-
-          <article class="post-card">
-            <div class="post-top">
-              <div>
-                <div class="post-tag">Week 03</div>
-                <h3>New Tool, Model, or Workflow Update</h3>
-              </div>
-              <div class="post-date">Add Date</div>
-            </div>
-            <p>
-              Use this type of entry to document new AI products, feature releases, workflow experiments, or case studies that might influence how people work in the built environment.
-            </p>
-            <div class="post-sections">
-              <article>
-                <h4>What Happened</h4>
-                <p>Summarize the release, change, or announcement.</p>
-              </article>
-              <article>
-                <h4>Why It Stands Out</h4>
-                <p>Explain what makes this development noteworthy or worth tracking.</p>
-              </article>
-              <article>
-                <h4>Possible Use in AEC</h4>
-                <p>Suggest where it could support design, planning, documentation, or communication.</p>
-              </article>
-            </div>
-          </article>
-
-          <article class="post-card">
-            <div class="post-top">
-              <div>
-                <div class="post-tag">Week 04</div>
-                <h3>Interactive Content or Class Output</h3>
-              </div>
-              <div class="post-date">Add Date</div>
-            </div>
-            <p>
-              This layout also works for interactive deliverables. You can embed a chart, mockup, visual summary, or screenshot produced during class and write a short explanation alongside it.
-            </p>
-            <div class="post-sections">
-              <article>
-                <h4>Artifact</h4>
-                <p>Describe the image, diagram, or interactive media you created.</p>
-              </article>
-              <article>
-                <h4>Learning Outcome</h4>
-                <p>Explain what you learned through making or analyzing it.</p>
-              </article>
-              <article>
-                <h4>Next Question</h4>
-                <p>Share what issue, challenge, or future topic you want to explore further.</p>
+              <article class="analysis-box">
+                <h4>My Reflection</h4>
+                <p>What stood out to me most was the tension between innovation and control. In AEC, where decisions directly affect public safety and the built environment, more intelligence does not automatically mean better outcomes. The article reinforces the idea that future AI adoption must be paired with accountability, oversight, and a strong understanding of industry-specific consequences.</p>
               </article>
             </div>
           </article>
@@ -331,34 +253,37 @@
       <div class="container">
         <div class="section-heading">
           <div>
-            <span>Presentation Tips</span>
-            <h2>How to Keep This Page Strong</h2>
+            <span>Interactive Content</span>
+            <h2>Week 3 Infographic</h2>
           </div>
           <p>
-            The strongest news pages combine consistency, critical thinking, and clear relevance to the course theme.
+            This infographic was generated in NotebookLM using the original source article and my structured ChatGPT summary as inputs. It visually summarizes the progression toward ASI, possible societal outcomes, and implications for the AEC industry.
           </p>
         </div>
 
-        <div class="layout-grid">
-          <article class="card">
-            <h3>Best Practices</h3>
-            <ul class="list">
-              <li>Write in your own voice and avoid sounding purely descriptive</li>
-              <li>Use headings and short sections for readability</li>
-              <li>Keep a similar structure from week to week</li>
-              <li>Connect general AI news back to AEC whenever possible</li>
-            </ul>
-          </article>
+        <img class="feature-image" src="CE 895 Week #3 AI News - Infographic_Emily Nelson.png" alt="Infographic titled The Dawn of ASI: Shaping the Future of Society and Construction" />
+        <p class="caption">
+          The infographic highlights the path from narrow AI to general intelligence to ASI, contrasting utopian and disruptive futures while connecting those possibilities to hyper-optimized design and autonomous construction planning.
+        </p>
+      </div>
+    </section>
 
-          <article class="card">
-            <h3>Optional Enhancements</h3>
-            <ul class="list">
-              <li>Add thumbnails or screenshots from each source</li>
-              <li>Embed videos, iframes, or data visuals</li>
-              <li>Create filters by topic, week, or theme</li>
-              <li>Link each entry to a dedicated post page later</li>
-            </ul>
-          </article>
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span>Why It Matters</span>
+            <h2>Takeaway for Design and Construction</h2>
+          </div>
+          <p>
+            Even if ASI remains speculative, the conversation is still valuable for AEC because it forces us to think ahead about responsibility, automation, and the future role of human expertise in project delivery.
+          </p>
+        </div>
+
+        <div class="post-card">
+          <p>
+            My key takeaway from this source is that the built environment cannot treat advanced AI only as a productivity story. The more capable intelligent systems become, the more important it is to ask who is responsible for decisions, how safety is protected, and how professional judgment remains central. In a field shaped by long timelines, public trust, and complex coordination, AI governance will be just as important as AI capability.
+          </p>
         </div>
       </div>
     </section>
@@ -368,14 +293,14 @@
         <div class="eyebrow">Next Page</div>
         <h2>Continue to AI in AEC Use Cases</h2>
         <p>
-          After documenting weekly AI developments, the next page can showcase your own assignments, use cases, and course projects in a gallery format.
+          This portfolio continues with course assignments and project examples that explore how AI concepts connect to real design and construction workflows.
         </p>
         <a class="btn" href="use-cases.html">Go to AI in AEC Use Cases</a>
       </div>
 
       <footer>
         <div class="footer-bar">
-          <p>© 2026 Your Name · AI in Design and Construction Portfolio</p>
+          <p>© 2026 Emily Nelson · AI in Design and Construction Portfolio</p>
           <p>Built for GitHub Pages</p>
         </div>
       </footer>
