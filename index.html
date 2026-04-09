@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI in Design & Construction Portfolio</title>
-  <meta name="description" content="Graduate portfolio showcasing AI in Design and Construction coursework, weekly AI news analysis, and AEC use cases." />
+  <title>Emily Nelson | AI in Design & Construction Portfolio</title>
+  <meta name="description" content="Graduate portfolio by Emily Nelson featuring AI news analysis, an AEC custom GPT, and reflections on AI in design and construction." />
   <style>
     :root {
       --coffee-bean: #210f04;
@@ -20,682 +20,250 @@
       --max-width: 1180px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(187, 107, 0, 0.2), transparent 28%),
-        linear-gradient(180deg, var(--sand), #efe4d9 35%, #f7f0ea 100%);
+      background: radial-gradient(circle at top left, rgba(187, 107, 0, 0.2), transparent 28%), linear-gradient(180deg, var(--sand), #efe4d9 35%, #f7f0ea 100%);
       color: var(--coffee-bean);
       line-height: 1.6;
     }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(var(--max-width), calc(100% - 2rem));
-      margin: 0 auto;
-    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max-width), calc(100% - 2rem)); margin: 0 auto; }
 
     .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      position: sticky; top: 0; z-index: 1000;
       backdrop-filter: blur(18px);
       background: rgba(255, 253, 250, 0.82);
       border-bottom: 1px solid rgba(33, 15, 4, 0.08);
     }
-
     .nav-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 0;
-      gap: 1rem;
+      display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; gap: 1rem;
     }
-
     .brand {
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-size: 1.05rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
     }
-
     .brand span {
-      display: block;
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      color: var(--chocolate-brown);
-      margin-top: 0.15rem;
+      display: block; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; color: var(--chocolate-brown); margin-top: 0.15rem;
     }
-
     .nav-links {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: flex-end;
+      display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; justify-content: flex-end;
     }
-
     .nav-links a {
-      padding: 0.7rem 1rem;
-      border-radius: 999px;
-      font-size: 0.92rem;
-      font-weight: 700;
-      transition: 0.25s ease;
+      padding: 0.7rem 1rem; border-radius: 999px; font-size: 0.92rem; font-weight: 700; transition: 0.25s ease;
     }
-
     .nav-links a:hover,
     .nav-links a:focus-visible {
-      background: rgba(147, 75, 0, 0.12);
-      outline: none;
+      background: rgba(147, 75, 0, 0.12); outline: none;
     }
-
     .nav-links .cta-link {
-      background: var(--coffee-bean);
-      color: var(--white);
+      background: var(--coffee-bean); color: var(--white);
     }
 
-    .nav-links .cta-link:hover,
-    .nav-links .cta-link:focus-visible {
-      background: var(--dark-garnet);
-    }
-
-    .hero {
-      padding: 5.5rem 0 4rem;
-    }
-
+    .hero { padding: 5.5rem 0 4rem; }
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 2rem;
-      align-items: stretch;
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 2rem; align-items: stretch;
     }
-
     .hero-copy,
     .hero-panel {
-      border-radius: calc(var(--radius) + 6px);
-      overflow: hidden;
-      position: relative;
-      box-shadow: var(--shadow);
+      border-radius: calc(var(--radius) + 6px); overflow: hidden; position: relative; box-shadow: var(--shadow);
     }
-
     .hero-copy {
-      background:
-        linear-gradient(135deg, rgba(33, 15, 4, 0.97), rgba(69, 33, 3, 0.94) 45%, rgba(105, 5, 0, 0.9));
-      color: var(--white);
-      padding: 3rem;
-      min-height: 520px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      background: linear-gradient(135deg, rgba(33, 15, 4, 0.97), rgba(69, 33, 3, 0.94) 45%, rgba(105, 5, 0, 0.9));
+      color: var(--white); padding: 3rem; min-height: 520px; display: flex; flex-direction: column; justify-content: space-between;
     }
-
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: #ffd8b0;
-      margin-bottom: 1.25rem;
+      display: inline-flex; align-items: center; gap: 0.5rem; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.76rem; font-weight: 700; color: #ffd8b0; margin-bottom: 1.25rem;
     }
-
     .eyebrow::before {
-      content: "";
-      width: 42px;
-      height: 1px;
-      background: currentColor;
-      opacity: 0.75;
+      content: ""; width: 42px; height: 1px; background: currentColor; opacity: 0.75;
     }
-
     h1 {
-      font-size: clamp(2.7rem, 7vw, 5.4rem);
-      line-height: 0.94;
-      text-transform: uppercase;
-      letter-spacing: 0.01em;
-      margin-bottom: 1.4rem;
+      font-size: clamp(2.7rem, 7vw, 5.4rem); line-height: 0.94; text-transform: uppercase; letter-spacing: 0.01em; margin-bottom: 1.4rem;
     }
-
-    .hero-copy p {
-      max-width: 56ch;
-      font-size: 1.05rem;
-      color: rgba(255, 253, 250, 0.86);
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-
+    .hero-copy p { max-width: 56ch; font-size: 1.05rem; color: rgba(255, 253, 250, 0.86); }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.55rem;
-      padding: 0.95rem 1.25rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-weight: 700;
-      transition: 0.25s ease;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; padding: 0.95rem 1.25rem; border-radius: 999px; border: 1px solid transparent; font-weight: 700; transition: 0.25s ease;
     }
-
-    .btn-primary {
-      background: var(--copperwood);
-      color: var(--white);
-    }
-
+    .btn-primary { background: var(--copperwood); color: var(--white); }
     .btn-primary:hover,
-    .btn-primary:focus-visible {
-      background: #cc7d12;
-      outline: none;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--white);
-      border-color: rgba(255, 253, 250, 0.3);
-    }
-
+    .btn-primary:focus-visible { background: #cc7d12; outline: none; }
+    .btn-secondary { background: transparent; color: var(--white); border-color: rgba(255, 253, 250, 0.3); }
     .btn-secondary:hover,
-    .btn-secondary:focus-visible {
-      background: rgba(255, 253, 250, 0.08);
-      outline: none;
-    }
+    .btn-secondary:focus-visible { background: rgba(255, 253, 250, 0.08); outline: none; }
 
     .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 2.5rem;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem;
     }
-
     .meta-card {
-      padding: 1rem;
-      border-radius: 16px;
-      background: rgba(255, 253, 250, 0.08);
-      border: 1px solid rgba(255, 253, 250, 0.1);
+      padding: 1rem; border-radius: 16px; background: rgba(255, 253, 250, 0.08); border: 1px solid rgba(255, 253, 250, 0.1);
     }
-
     .meta-card span {
-      display: block;
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #ffd8b0;
-      margin-bottom: 0.35rem;
+      display: block; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.14em; color: #ffd8b0; margin-bottom: 0.35rem;
     }
-
-    .meta-card strong {
-      font-size: 1rem;
-    }
-
     .hero-panel {
       background: linear-gradient(180deg, rgba(244, 237, 230, 0.65), rgba(230, 221, 213, 0.92));
-      border: 1px solid rgba(33, 15, 4, 0.08);
-      min-height: 520px;
-      padding: 1.5rem;
+      border: 1px solid rgba(33, 15, 4, 0.08); min-height: 520px; padding: 1.5rem;
     }
-
-    .panel-trail {
-      position: absolute;
-      inset: 0;
-      opacity: 0.13;
-      background-image:
-        radial-gradient(circle at 12% 18%, var(--coffee-bean) 0 2px, transparent 3px),
-        radial-gradient(circle at 75% 24%, var(--chocolate-brown) 0 2px, transparent 3px),
-        radial-gradient(circle at 58% 82%, var(--dark-garnet) 0 2px, transparent 3px),
-        radial-gradient(circle at 22% 70%, var(--copperwood) 0 2px, transparent 3px);
-      background-size: 180px 180px;
-    }
-
-    .trail-line {
-      position: absolute;
-      inset: 8% 8% auto auto;
-      width: 80%;
-      height: 80%;
-      border: 2px dashed rgba(69, 33, 3, 0.28);
-      border-radius: 36px;
-      clip-path: polygon(8% 10%, 20% 8%, 28% 20%, 40% 18%, 50% 28%, 62% 25%, 70% 38%, 76% 46%, 69% 60%, 58% 68%, 55% 78%, 42% 82%, 32% 72%, 22% 74%, 13% 61%, 18% 47%, 10% 35%);
-    }
-
     .mini-window {
-      position: relative;
-      background: rgba(255, 253, 250, 0.88);
-      border: 1px solid rgba(33, 15, 4, 0.08);
-      border-radius: 18px;
-      padding: 1.1rem;
-      box-shadow: 0 12px 30px rgba(33, 15, 4, 0.08);
+      position: relative; background: rgba(255, 253, 250, 0.88); border: 1px solid rgba(33, 15, 4, 0.08); border-radius: 18px; padding: 1.1rem; box-shadow: 0 12px 30px rgba(33, 15, 4, 0.08);
     }
-
-    .mini-window + .mini-window {
-      margin-top: 1rem;
-    }
-
+    .mini-window + .mini-window { margin-top: 1rem; }
     .window-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 0.8rem;
-      color: var(--dark-walnut);
+      display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--dark-walnut);
     }
-
-    .dots {
-      display: flex;
-      gap: 0.35rem;
-    }
-
-    .dots span {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(33, 15, 4, 0.18);
-    }
-
-    .window-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.8rem;
-    }
-
+    .window-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
     .window-grid article,
     .timeline-card {
-      background: linear-gradient(180deg, rgba(187, 107, 0, 0.12), rgba(147, 75, 0, 0.05));
-      border: 1px solid rgba(147, 75, 0, 0.12);
-      border-radius: 14px;
-      padding: 0.9rem;
+      background: linear-gradient(180deg, rgba(187, 107, 0, 0.12), rgba(147, 75, 0, 0.05)); border: 1px solid rgba(147, 75, 0, 0.12); border-radius: 14px; padding: 0.9rem;
     }
-
     .window-grid h3,
-    .timeline-card h3,
-    .section-heading h2,
-    .project-card h3,
-    .about-card h2,
-    .footer-cta h2 {
-      line-height: 1.1;
-    }
-
-    .window-grid h3,
-    .timeline-card h3 {
-      font-size: 0.95rem;
-      margin-bottom: 0.4rem;
-      color: var(--dark-walnut);
-    }
-
+    .timeline-card h3 { font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--dark-walnut); }
     .window-grid p,
-    .timeline-card p {
-      font-size: 0.88rem;
-      color: rgba(33, 15, 4, 0.82);
-    }
+    .timeline-card p { font-size: 0.88rem; color: rgba(33, 15, 4, 0.82); }
+    .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.2rem; }
 
-    .section {
-      padding: 1.5rem 0 4.5rem;
-    }
-
+    .section { padding: 1.5rem 0 4.5rem; }
     .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+      display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1.5rem;
     }
-
     .section-heading span {
-      display: inline-block;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.75rem;
-      font-weight: 800;
-      color: var(--chocolate-brown);
-      margin-bottom: 0.5rem;
+      display: inline-block; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.75rem; font-weight: 800; color: var(--chocolate-brown); margin-bottom: 0.5rem;
     }
-
     .section-heading h2 {
-      font-size: clamp(1.9rem, 4vw, 3.4rem);
-      text-transform: uppercase;
-      max-width: 12ch;
+      font-size: clamp(1.9rem, 4vw, 3.4rem); text-transform: uppercase; max-width: 13ch;
     }
+    .section-heading p { max-width: 54ch; color: rgba(33, 15, 4, 0.78); }
 
-    .section-heading p {
-      max-width: 54ch;
-      color: rgba(33, 15, 4, 0.78);
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.2rem;
-    }
-
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
     .project-card {
-      background: rgba(255, 253, 250, 0.85);
-      border: 1px solid rgba(33, 15, 4, 0.08);
-      border-radius: 24px;
-      padding: 1.4rem;
-      box-shadow: 0 10px 30px rgba(33, 15, 4, 0.08);
-      position: relative;
-      overflow: hidden;
+      background: rgba(255, 253, 250, 0.85); border: 1px solid rgba(33, 15, 4, 0.08); border-radius: 24px; padding: 1.4rem; box-shadow: 0 10px 30px rgba(33, 15, 4, 0.08);
     }
-
-    .project-card::after {
-      content: "";
-      position: absolute;
-      right: -30px;
-      top: -35px;
-      width: 120px;
-      height: 120px;
-      background: radial-gradient(circle, rgba(187, 107, 0, 0.2), transparent 65%);
-    }
-
     .card-tag {
-      display: inline-block;
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 800;
-      color: var(--dark-garnet);
-      margin-bottom: 0.8rem;
+      display: inline-block; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 800; color: var(--dark-garnet); margin-bottom: 0.8rem;
     }
-
-    .project-card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .project-card p {
-      color: rgba(33, 15, 4, 0.8);
-      margin-bottom: 1rem;
-    }
-
-    .feature-list {
-      list-style: none;
-      display: grid;
-      gap: 0.6rem;
-    }
-
+    .project-card h3 { font-size: 1.35rem; margin-bottom: 0.7rem; }
+    .project-card p { color: rgba(33, 15, 4, 0.8); margin-bottom: 1rem; }
+    .feature-list { list-style: none; display: grid; gap: 0.6rem; }
     .feature-list li {
-      position: relative;
-      padding-left: 1.1rem;
-      font-size: 0.95rem;
-      color: rgba(33, 15, 4, 0.85);
+      position: relative; padding-left: 1.1rem; font-size: 0.95rem; color: rgba(33, 15, 4, 0.85);
     }
-
     .feature-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.6rem;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--copperwood);
-    }
-
-    .about-layout {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 1.25rem;
-      align-items: stretch;
-    }
-
-    .about-card,
-    .about-stats {
-      border-radius: 24px;
-      overflow: hidden;
-    }
-
-    .about-card {
-      background: linear-gradient(180deg, var(--dark-walnut), var(--coffee-bean));
-      color: var(--white);
-      padding: 2rem;
-      box-shadow: var(--shadow);
-    }
-
-    .about-card p {
-      margin-top: 1rem;
-      color: rgba(255, 253, 250, 0.84);
-      max-width: 55ch;
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-
-    .stat-box {
-      background: rgba(255, 253, 250, 0.88);
-      border: 1px solid rgba(33, 15, 4, 0.08);
-      border-radius: 22px;
-      padding: 1.5rem;
-      box-shadow: 0 8px 24px rgba(33, 15, 4, 0.07);
-    }
-
-    .stat-box strong {
-      display: block;
-      font-size: 2rem;
-      color: var(--dark-garnet);
-      margin-bottom: 0.5rem;
-    }
-
-    .timeline {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 1.2rem;
+      content: ""; position: absolute; left: 0; top: 0.6rem; width: 7px; height: 7px; border-radius: 50%; background: var(--copperwood);
     }
 
     .footer-cta {
-      background: linear-gradient(135deg, var(--dark-garnet), var(--coffee-bean));
-      color: var(--white);
-      border-radius: 30px;
-      padding: 2.5rem;
-      box-shadow: var(--shadow);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 3rem;
+      background: linear-gradient(135deg, var(--dark-garnet), var(--coffee-bean)); color: var(--white); border-radius: 30px; padding: 2.5rem; box-shadow: var(--shadow); display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 3rem;
     }
-
-    .footer-cta p {
-      color: rgba(255, 253, 250, 0.84);
-      max-width: 56ch;
-      margin-top: 0.75rem;
-    }
-
-    footer {
-      padding-bottom: 2.5rem;
-      color: rgba(33, 15, 4, 0.7);
-    }
-
+    .footer-cta p { color: rgba(255, 253, 250, 0.84); max-width: 56ch; margin-top: 0.75rem; }
+    footer { padding-bottom: 2.5rem; color: rgba(33, 15, 4, 0.7); }
     .footer-bar {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-      font-size: 0.92rem;
-      border-top: 1px solid rgba(33, 15, 4, 0.12);
-      padding-top: 1rem;
+      display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: 0.92rem; border-top: 1px solid rgba(33, 15, 4, 0.12); padding-top: 1rem;
     }
 
     @media (max-width: 980px) {
-      .hero-grid,
-      .project-grid,
-      .about-layout,
-      .timeline,
-      .about-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy,
-      .hero-panel {
-        min-height: auto;
-      }
-
-      .hero-meta {
-        grid-template-columns: 1fr;
-      }
-
-      .section-heading {
-        align-items: start;
-        flex-direction: column;
-      }
-
-      .footer-cta {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      .hero-grid, .project-grid, .timeline, .hero-meta, .window-grid { grid-template-columns: 1fr; }
+      .hero-copy, .hero-panel { min-height: auto; }
+      .section-heading { align-items: start; flex-direction: column; }
+      .footer-cta { flex-direction: column; align-items: flex-start; }
     }
-
     @media (max-width: 700px) {
-      .nav-wrap {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        justify-content: flex-start;
-      }
-
-      .hero {
-        padding-top: 3.5rem;
-      }
-
-      .hero-copy,
-      .hero-panel,
-      .about-card,
-      .footer-cta {
-        padding: 1.5rem;
-      }
-
-      h1 {
-        font-size: clamp(2.35rem, 13vw, 3.8rem);
-      }
+      .nav-wrap { flex-direction: column; align-items: flex-start; }
+      .nav-links { justify-content: flex-start; }
+      .hero { padding-top: 3.5rem; }
+      .hero-copy, .hero-panel, .footer-cta { padding: 1.5rem; }
+      h1 { font-size: clamp(2.35rem, 13vw, 3.8rem); }
     }
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="#top">
-        AI in Design &amp; Construction
-        <span>Graduate Portfolio</span>
-      </a>
+      <a class="brand" href="index.html">AI in Design &amp; Construction<span>Emily Nelson</span></a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#home">Home</a>
+        <a href="index.html">Home</a>
         <a href="about.html">About Me</a>
         <a href="news.html">Weekly AI News</a>
         <a href="use-cases.html">AI in AEC Use Cases</a>
-        <a class="cta-link" href="#portfolio-overview">Explore Work</a>
+        <a class="cta-link" href="#portfolio-overview">Explore Portfolio</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero" id="home">
+  <main>
+    <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
           <div>
-            <div class="eyebrow">Course Portfolio</div>
-            <h1>AI for Design, Construction, and Critical Reflection</h1>
+            <div class="eyebrow">Graduate Portfolio</div>
+            <h1>AI for Design, Construction, and Project Leadership</h1>
             <p>
-              This site documents my graduate work in AI in Design and Construction. It brings together project deliverables,
-              weekly news analysis, course assignments, and reflections on how AI is reshaping design workflows,
-              decision-making, and professional practice in the AEC industry.
+              This portfolio documents my work in AI in Design and Construction through professional reflection, weekly AI news analysis, and applied AEC use cases. It brings together my academic work at the University of Kansas and my industry perspective as a Construction Contract Administrator at LS3P.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#portfolio-overview">View Portfolio Sections</a>
-              <a class="btn btn-secondary" href="use-cases.html">See Class Projects</a>
+              <a class="btn btn-primary" href="about.html">About Me</a>
+              <a class="btn btn-secondary" href="news.html">Week 3 News Analysis</a>
             </div>
           </div>
 
           <div class="hero-meta" aria-label="Portfolio summary">
             <div class="meta-card">
+              <span>Role</span>
+              <strong>Construction Contract Administrator</strong>
+            </div>
+            <div class="meta-card">
+              <span>Program</span>
+              <strong>M.S. Architectural Engineering</strong>
+            </div>
+            <div class="meta-card">
               <span>Focus</span>
-              <strong>Academic AI Portfolio</strong>
-            </div>
-            <div class="meta-card">
-              <span>Content</span>
-              <strong>News, projects, reflections</strong>
-            </div>
-            <div class="meta-card">
-              <span>Audience</span>
-              <strong>Faculty, peers, future employers</strong>
+              <strong>AI in AEC workflows</strong>
             </div>
           </div>
         </div>
 
-        <aside class="hero-panel" aria-label="Website preview panels">
-          <div class="panel-trail" aria-hidden="true"></div>
-          <div class="trail-line" aria-hidden="true"></div>
-
+        <aside class="hero-panel" aria-label="Portfolio overview">
           <div class="mini-window">
             <div class="window-head">
-              <span>Site Map Overview</span>
-              <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <span>Portfolio Highlights</span>
             </div>
             <div class="window-grid">
               <article>
-                <h3>Homepage</h3>
-                <p>Introduces the portfolio and explains what readers can expect from the site.</p>
-              </article>
-              <article>
                 <h3>About Me</h3>
-                <p>Professional background, academic interests, and design + AI goals.</p>
+                <p>Professional background in civil engineering, construction administration, and graduate study in architectural engineering.</p>
               </article>
               <article>
                 <h3>Weekly AI News</h3>
-                <p>Source summaries, personal analysis, and interactive class content.</p>
+                <p>Analysis of artificial super intelligence and its potential impact on society and the AEC industry.</p>
               </article>
               <article>
-                <h3>AI in AEC</h3>
-                <p>Assignments and use cases with clear relevance to industry practice.</p>
+                <h3>AEC Use Case</h3>
+                <p>AIA Conflict Navigator, a custom GPT built to support contract-based conflict analysis in project delivery.</p>
+              </article>
+              <article>
+                <h3>Purpose</h3>
+                <p>A focused academic site connecting coursework, professional insight, and practical AI application.</p>
               </article>
             </div>
           </div>
 
           <div class="mini-window">
             <div class="window-head">
-              <span>Design Direction</span>
-              <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <span>Site Direction</span>
             </div>
             <div class="timeline">
               <div class="timeline-card">
-                <h3>Simple</h3>
-                <p>Clean page structure for easy navigation and GitHub hosting.</p>
+                <h3>Clear</h3>
+                <p>Simple navigation and focused content for a polished course portfolio.</p>
               </div>
               <div class="timeline-card">
                 <h3>Professional</h3>
-                <p>Warm neutral palette and strong typography inspired by editorial portfolios.</p>
+                <p>Warm editorial styling grounded in your selected brown palette.</p>
               </div>
               <div class="timeline-card">
-                <h3>Purposeful</h3>
-                <p>Each page highlights academic work, reflection, and practical AI relevance.</p>
+                <h3>Applied</h3>
+                <p>Each page connects AI ideas directly to design and construction practice.</p>
               </div>
             </div>
           </div>
@@ -708,194 +276,64 @@
         <div class="section-heading">
           <div>
             <span>Portfolio Structure</span>
-            <h2>Four Core Website Pages</h2>
+            <h2>Three Core Content Pages</h2>
           </div>
           <p>
-            The homepage is designed as a central entry point. From here, visitors can move into your professional profile,
-            your AI news analysis archive, and your AEC-focused course projects.
+            The homepage serves as an entry point into my professional background, my Week 3 AI news analysis, and my custom AEC mini-agent use case.
           </p>
         </div>
 
         <div class="project-grid">
           <article class="project-card">
-            <div class="card-tag">01 · Homepage</div>
-            <h3>Index / Home</h3>
-            <p>
-              Establishes the purpose of the portfolio and introduces the themes of the semester: academic research,
-              industry awareness, and AI experimentation in design and construction.
-            </p>
-            <ul class="feature-list">
-              <li>Clear course-focused introduction</li>
-              <li>Quick links to the rest of the site</li>
-              <li>Summary of what the viewer will find</li>
-            </ul>
-          </article>
-
-          <article class="project-card">
-            <div class="card-tag">02 · Profile</div>
+            <div class="card-tag">Professional Profile</div>
             <h3>About Me</h3>
             <p>
-              Provides a concise professional introduction, including your academic background, interests in AI,
-              and how design and construction connect to your graduate studies.
+              Introduces my background in civil engineering, contracting, construction administration, and graduate study in architectural engineering.
             </p>
             <ul class="feature-list">
-              <li>Professional bio and headshot area</li>
-              <li>Academic interests and goals</li>
-              <li>Optional contact or LinkedIn link</li>
+              <li>Industry experience across Colorado and the Carolinas</li>
+              <li>University of Kansas graduate studies</li>
+              <li>LinkedIn and professional positioning</li>
             </ul>
           </article>
 
           <article class="project-card">
-            <div class="card-tag">03 · Analysis</div>
+            <div class="card-tag">Course Analysis</div>
             <h3>Weekly AI News</h3>
             <p>
-              Organizes recurring analysis of AI news sources. This section can showcase article summaries,
-              your commentary, and any visual or interactive outputs developed during class.
+              Features my Week 3 analysis of artificial super intelligence, including broader societal implications and potential influence on AEC.
             </p>
             <ul class="feature-list">
-              <li>Weekly source summaries</li>
-              <li>Personal reflections and takeaways</li>
-              <li>Embedded media, charts, or linked posts</li>
+              <li>Source article summary</li>
+              <li>Reflection on AI governance and responsibility</li>
+              <li>NotebookLM infographic</li>
             </ul>
           </article>
 
           <article class="project-card">
-            <div class="card-tag">04 · Course Work</div>
-            <h3>Examples of AI in AEC Use Cases</h3>
+            <div class="card-tag">Applied AEC Tool</div>
+            <h3>AIA Conflict Navigator</h3>
             <p>
-              Collects your assignments and project work with short explanations of what each item is,
-              why it matters, and how it relates to real-world AEC workflows.
+              Showcases a custom GPT built to analyze common AIA-based disputes and provide a 360-degree conflict-resolution framework.
             </p>
             <ul class="feature-list">
-              <li>Class assignments and project gallery</li>
-              <li>Brief context for each artifact</li>
-              <li>Why each use case is relevant or helpful</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about-preview">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <span>Professional Framing</span>
-            <h2>About Section Preview</h2>
-          </div>
-          <p>
-            This section creates space for a polished, credible introduction and helps connect your coursework
-            to a larger professional identity.
-          </p>
-        </div>
-
-        <div class="about-layout">
-          <article class="about-card">
-            <div class="eyebrow">Suggested Intro</div>
-            <h2>Hello, I’m [Your Name].</h2>
-            <p>
-              I am a graduate student exploring how artificial intelligence can support better decision-making,
-              clearer communication, and more efficient workflows in design and construction. This portfolio documents
-              my coursework, research interests, and critical reflections on the role of AI in the AEC field.
-            </p>
-            <p>
-              Replace this text with your own biography, academic background, interests, and any professional goals you
-              want to highlight for instructors, classmates, or future employers.
-            </p>
-          </article>
-
-          <div class="about-stats">
-            <div class="stat-box">
-              <strong>Bio</strong>
-              <p>Introduce your background, degree program, and current focus areas.</p>
-            </div>
-            <div class="stat-box">
-              <strong>Goals</strong>
-              <p>Describe how AI connects to your long-term design or construction interests.</p>
-            </div>
-            <div class="stat-box">
-              <strong>Skills</strong>
-              <p>Highlight research, analysis, design thinking, and technical tools from the semester.</p>
-            </div>
-            <div class="stat-box">
-              <strong>Links</strong>
-              <p>Add LinkedIn, resume, or GitHub links to strengthen the professional presentation.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="news-preview">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <span>Ongoing Analysis</span>
-            <h2>Weekly AI News</h2>
-          </div>
-          <p>
-            A recurring page template can help you publish updates consistently. Each post can include the source,
-            a concise summary, your reflection, and a note about why the topic matters for AEC.
-          </p>
-        </div>
-
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="card-tag">Post Structure</div>
-            <h3>Recommended Format</h3>
-            <ul class="feature-list">
-              <li>Article title, publication, and date</li>
-              <li>2–4 sentence summary of the source</li>
-              <li>Your analysis and course connection</li>
-              <li>Embedded media or interactive output</li>
+              <li>Owner, Architect, and Contractor perspectives</li>
+              <li>Contract-based resolution pathways</li>
+              <li>Practical project-administration use case</li>
             </ul>
           </article>
 
           <article class="project-card">
-            <div class="card-tag">Why It Matters</div>
-            <h3>Builds a Record of Learning</h3>
+            <div class="card-tag">Hosting</div>
+            <h3>GitHub Pages Ready</h3>
             <p>
-              Over time, this page becomes a useful archive of how your understanding of AI evolves throughout the semester.
-              It also shows regular engagement with current developments in the field.
+              The site is structured as a static portfolio that can be uploaded directly to GitHub Pages with linked HTML files and image assets.
             </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="aec-preview">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <span>Applied Work</span>
-            <h2>AI in AEC Use Cases</h2>
-          </div>
-          <p>
-            This page can function like a gallery of academic artifacts. Each project card should briefly explain the
-            assignment, the AI concept or tool involved, and what insight it offers for design and construction practice.
-          </p>
-        </div>
-
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="card-tag">Assignment Type</div>
-            <h3>Case Study or Research Analysis</h3>
-            <p>Use for written assignments, precedent studies, or comparative evaluations of AI tools in AEC.</p>
-          </article>
-          <article class="project-card">
-            <div class="card-tag">Assignment Type</div>
-            <h3>Workflow Demonstration</h3>
-            <p>Use for process diagrams, tool tests, prompt experiments, or step-by-step demonstrations.</p>
-          </article>
-          <article class="project-card">
-            <div class="card-tag">Assignment Type</div>
-            <h3>Design Reflection</h3>
-            <p>Use for lessons learned, critiques, ethical considerations, or implications for professional practice.</p>
-          </article>
-          <article class="project-card">
-            <div class="card-tag">Assignment Type</div>
-            <h3>Visual Project Gallery</h3>
-            <p>Use for screenshots, diagrams, renderings, data visuals, or other supporting images from your coursework.</p>
+            <ul class="feature-list">
+              <li>Consistent page styling</li>
+              <li>Shared navigation across all pages</li>
+              <li>Asset paths fixed for your headshot and infographic</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -905,20 +343,19 @@
       <div class="container">
         <div class="footer-cta">
           <div>
-            <div class="eyebrow">Ready for GitHub Pages</div>
-            <h2>Built as a clean static homepage for your course portfolio.</h2>
+            <div class="eyebrow">Next Step</div>
+            <h2>Explore the portfolio pages.</h2>
             <p>
-              This starter page is designed to be easy to upload to GitHub. You can keep the CSS inside this file for a
-              simple setup, or split it into separate HTML and CSS files as your site grows.
+              Start with my professional background, then move into the Week 3 AI news analysis and the AIA Conflict Navigator custom GPT use case.
             </p>
           </div>
-          <a class="btn btn-primary" href="news.html">Next: Build the News Page</a>
+          <a class="btn btn-primary" href="about.html">Go to About Me</a>
         </div>
 
         <footer>
           <div class="footer-bar">
-            <p>© 2026 Your Name · AI in Design and Construction Portfolio</p>
-            <p>Designed for static hosting on GitHub Pages</p>
+            <p>© 2026 Emily Nelson · AI in Design and Construction Portfolio</p>
+            <p>Built for GitHub Pages</p>
           </div>
         </footer>
       </div>
