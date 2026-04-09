@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI in AEC Use Cases | AI in Design & Construction Portfolio</title>
-  <meta name="description" content="Projects, assignments, and examples of AI in architecture, engineering, and construction." />
+  <meta name="description" content="Emily Nelson's AIA Conflict Navigator custom AI agent for contract-based conflict analysis in design and construction." />
   <style>
     :root {
       --coffee-bean: #210f04;
@@ -12,10 +12,8 @@
       --dark-garnet: #690500;
       --chocolate-brown: #934b00;
       --copperwood: #bb6b00;
-      --sand: #f4ede6;
       --white: #fffdfa;
       --shadow: 0 18px 44px rgba(0, 0, 0, 0.14);
-      --radius: 22px;
       --max-width: 1180px;
     }
 
@@ -44,7 +42,7 @@
     .nav-links .active { background: var(--coffee-bean); color: var(--white); }
 
     .hero { padding: 5rem 0 3rem; }
-    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; align-items: stretch; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 1.2rem; align-items: stretch; }
     .hero-main, .hero-side {
       border-radius: 30px; overflow: hidden; box-shadow: var(--shadow); position: relative;
     }
@@ -52,22 +50,32 @@
       background: linear-gradient(135deg, var(--coffee-bean), var(--dark-walnut) 52%, var(--dark-garnet));
       color: var(--white); padding: 2.5rem;
     }
+    .hero-side {
+      background: rgba(255,253,250,0.88); border: 1px solid rgba(33,15,4,0.08); padding: 1.5rem;
+      display: grid; gap: 1rem;
+    }
     .eyebrow {
       display: inline-block; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.75rem; font-weight: 800;
       color: #ffd8b0; margin-bottom: 1rem;
     }
-    h1 { font-size: clamp(2.4rem, 7vw, 5rem); line-height: 0.96; text-transform: uppercase; margin-bottom: 1rem; }
+    h1 { font-size: clamp(2.4rem, 7vw, 4.8rem); line-height: 0.96; text-transform: uppercase; margin-bottom: 1rem; }
     .hero-main p { max-width: 58ch; color: rgba(255,253,250,0.86); }
-    .hero-side {
-      background: rgba(255,253,250,0.84); border: 1px solid rgba(33,15,4,0.08); padding: 1.4rem;
-      display: grid; gap: 1rem;
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.6rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; padding: 0.95rem 1.25rem; border-radius: 999px;
+      font-weight: 700; transition: 0.25s ease; border: 1px solid transparent;
     }
+    .btn-primary { background: var(--copperwood); color: var(--white); }
+    .btn-primary:hover, .btn-primary:focus-visible { background: #cb7a10; outline: none; }
+    .btn-secondary { border-color: rgba(255,253,250,0.28); color: var(--white); }
+    .btn-secondary:hover, .btn-secondary:focus-visible { background: rgba(255,253,250,0.08); outline: none; }
+
     .mini-card {
       border-radius: 20px; padding: 1rem; background: linear-gradient(180deg, rgba(187,107,0,0.12), rgba(147,75,0,0.04));
       border: 1px solid rgba(147,75,0,0.12);
     }
     .mini-card h3 { margin-bottom: 0.45rem; font-size: 1rem; color: var(--dark-walnut); }
-    .mini-card p { color: rgba(33,15,4,0.8); font-size: 0.93rem; }
+    .mini-card p { color: rgba(33,15,4,0.8); font-size: 0.94rem; }
 
     .section { padding: 1rem 0 4rem; }
     .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1.5rem; }
@@ -75,65 +83,55 @@
     .section-heading h2 { font-size: clamp(1.9rem, 4vw, 3.2rem); text-transform: uppercase; line-height: 1.02; }
     .section-heading p { max-width: 56ch; color: rgba(33,15,4,0.76); }
 
-    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
-    .project-card {
-      background: rgba(255,253,250,0.9); border: 1px solid rgba(33,15,4,0.08); border-radius: 24px; padding: 1.35rem;
-      box-shadow: 0 10px 28px rgba(33,15,4,0.07); position: relative; overflow: hidden;
-    }
-    .project-card::after {
-      content: ""; position: absolute; right: -25px; top: -25px; width: 100px; height: 100px;
-      background: radial-gradient(circle, rgba(187,107,0,0.18), transparent 65%);
-    }
-    .project-card h3 { font-size: 1.25rem; margin-bottom: 0.65rem; line-height: 1.08; }
-    .project-card p { color: rgba(33,15,4,0.78); margin-bottom: 0.9rem; }
-    .tag {
-      display: inline-block; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; font-weight: 800;
-      color: var(--dark-garnet); margin-bottom: 0.7rem;
-    }
-    .list { list-style: none; display: grid; gap: 0.65rem; }
-    .list li { position: relative; padding-left: 1rem; color: rgba(33,15,4,0.84); font-size: 0.94rem; }
-    .list li::before { content: ""; position: absolute; left: 0; top: 0.63rem; width: 7px; height: 7px; border-radius: 50%; background: var(--copperwood); }
-
-    .feature-layout { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 1.2rem; }
+    .content-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 1.2rem; }
     .card {
-      background: rgba(255,253,250,0.88); border: 1px solid rgba(33,15,4,0.08); border-radius: 24px; padding: 1.5rem;
+      background: rgba(255,253,250,0.9); border: 1px solid rgba(33,15,4,0.08); border-radius: 24px; padding: 1.5rem;
       box-shadow: 0 10px 28px rgba(33,15,4,0.07);
     }
-    .card h3 { font-size: 1.28rem; margin-bottom: 0.75rem; }
-    .card p { color: rgba(33,15,4,0.78); }
+    .card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; }
+    .card p { color: rgba(33,15,4,0.79); }
+    .list { list-style: none; display: grid; gap: 0.75rem; margin-top: 1rem; }
+    .list li { position: relative; padding-left: 1.1rem; color: rgba(33,15,4,0.84); }
+    .list li::before { content: ""; position: absolute; left: 0; top: 0.66rem; width: 7px; height: 7px; border-radius: 50%; background: var(--copperwood); }
 
-    .template-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    .template-card {
-      background: linear-gradient(180deg, rgba(187,107,0,0.12), rgba(147,75,0,0.04)); border: 1px solid rgba(147,75,0,0.12);
-      border-radius: 20px; padding: 1rem;
+    .analysis-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .analysis-box {
+      background: linear-gradient(180deg, rgba(187,107,0,0.12), rgba(147,75,0,0.04));
+      border: 1px solid rgba(147,75,0,0.12); border-radius: 20px; padding: 1.1rem;
     }
-    .template-card h4 { margin-bottom: 0.5rem; color: var(--dark-walnut); }
-    .template-card p { font-size: 0.92rem; color: rgba(33,15,4,0.8); }
+    .analysis-box h4 { margin-bottom: 0.55rem; color: var(--dark-walnut); font-size: 1rem; }
+    .analysis-box p { margin-bottom: 0; font-size: 0.95rem; color: rgba(33,15,4,0.8); }
+
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; }
+    .step-card {
+      background: rgba(255,253,250,0.88); border: 1px solid rgba(33,15,4,0.08); border-radius: 22px; padding: 1.25rem;
+      box-shadow: 0 10px 28px rgba(33,15,4,0.07);
+    }
+    .step-card strong {
+      display: inline-flex; width: 2rem; height: 2rem; border-radius: 50%; align-items: center; justify-content: center;
+      background: var(--dark-garnet); color: var(--white); margin-bottom: 0.8rem;
+    }
+    .step-card h3 { font-size: 1.08rem; margin-bottom: 0.45rem; }
+    .step-card p { color: rgba(33,15,4,0.78); }
 
     .footer-box {
       margin: 0 0 3rem; background: linear-gradient(135deg, var(--dark-garnet), var(--coffee-bean));
       color: var(--white); border-radius: 28px; padding: 2rem; box-shadow: var(--shadow);
     }
     .footer-box p { margin-top: 0.8rem; color: rgba(255,253,250,0.84); max-width: 58ch; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; padding: 0.95rem 1.25rem; border-radius: 999px;
-      background: var(--copperwood); color: var(--white); font-weight: 700; margin-top: 1.2rem;
-    }
-    .btn:hover, .btn:focus-visible { background: #cb7a10; outline: none; }
-
     footer { padding-bottom: 2rem; }
     .footer-bar {
       border-top: 1px solid rgba(33,15,4,0.12); padding-top: 1rem; display: flex; justify-content: space-between; flex-wrap: wrap;
       gap: 1rem; color: rgba(33,15,4,0.68); font-size: 0.92rem;
     }
 
-    @media (max-width: 1024px) {
-      .hero-grid, .feature-layout, .gallery-grid, .template-grid { grid-template-columns: 1fr; }
+    @media (max-width: 980px) {
+      .hero-grid, .content-grid, .analysis-grid, .steps-grid { grid-template-columns: 1fr; }
       .section-heading { flex-direction: column; align-items: start; }
     }
     @media (max-width: 700px) {
       .nav-wrap { flex-direction: column; align-items: flex-start; }
-      .hero-main, .hero-side, .project-card, .card, .footer-box { padding: 1.4rem; }
+      .hero-main, .hero-side, .card, .step-card, .footer-box { padding: 1.4rem; }
       .hero { padding-top: 3.5rem; }
     }
   </style>
@@ -155,154 +153,60 @@
     <section class="hero">
       <div class="container hero-grid">
         <article class="hero-main">
-          <div class="eyebrow">Course Assignments and Projects</div>
-          <h1>AI in AEC Use Cases</h1>
+          <div class="eyebrow">Custom AI Agent Use Case</div>
+          <h1>AIA Conflict Navigator</h1>
           <p>
-            This page showcases class assignments, experiments, and project examples related to AI in architecture, engineering, and construction. Each entry is meant to briefly explain what the artifact represents and why it is helpful, important, or relevant to professional practice.
+            AIA Conflict Navigator is a custom GPT designed to analyze project conflicts through standard AIA contract frameworks and provide a balanced, 360-degree perspective for the Owner, Architect, and Contractor. The goal is to help teams move past emotion-driven disputes and toward practical, contract-based resolution pathways.
           </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://chatgpt.com/g/g-69b318fbd2f8819185a5a9d3ff29b2cb-aia-conflict-navigator" target="_blank" rel="noopener noreferrer">Open Custom GPT</a>
+            <a class="btn btn-secondary" href="#details">View Use Case Details</a>
+          </div>
         </article>
 
         <aside class="hero-side">
           <div class="mini-card">
-            <h3>Gallery Approach</h3>
-            <p>Use project cards to organize assignments clearly and make the page easy to scan.</p>
+            <h3>Problem Addressed</h3>
+            <p>When conflict arises on a project, ego and emotion can overshadow resolution. This mini-agent uses the contract to re-center the discussion on roles, obligations, and practical next steps.</p>
           </div>
           <div class="mini-card">
-            <h3>Professional Framing</h3>
-            <p>For each item, explain not only what you made, but why it matters in real AEC workflows.</p>
+            <h3>Who It Serves</h3>
+            <p>Owners, designers, and contractors can all use the tool to better understand where perspectives align, where they conflict, and how disputes might be resolved.</p>
           </div>
           <div class="mini-card">
-            <h3>Visual Support</h3>
-            <p>Add screenshots, diagrams, process visuals, or thumbnails as your portfolio grows.</p>
+            <h3>Expected Output</h3>
+            <p>The tool produces a 360-degree analysis, resolution pathways, and a strength rating of each party’s position to help move the project forward.</p>
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="details">
       <div class="container">
         <div class="section-heading">
           <div>
-            <span>Project Gallery</span>
-            <h2>Sample Assignment Cards</h2>
+            <span>Use Case Overview</span>
+            <h2>Why This Agent Matters in AEC</h2>
           </div>
           <p>
-            These cards are starter placeholders. Replace the headings and descriptions with your actual class assignments, research exercises, or final project work.
+            Contract interpretation and project conflict are recurring challenges in design and construction. This custom GPT demonstrates how AI can support conflict analysis without replacing professional judgment or legal counsel.
           </p>
         </div>
 
-        <div class="gallery-grid">
-          <article class="project-card">
-            <div class="tag">Use Case 01</div>
-            <h3>Predictive Design Support</h3>
-            <p>Document an assignment that explored how AI can support early-stage design choices, option comparison, or performance-driven thinking.</p>
-            <ul class="list">
-              <li>What the assignment involved</li>
-              <li>Which tool, method, or concept was used</li>
-              <li>Why it matters in design workflows</li>
-            </ul>
-          </article>
-
-          <article class="project-card">
-            <div class="tag">Use Case 02</div>
-            <h3>Automated Documentation</h3>
-            <p>Use this card for work related to text generation, report preparation, project summaries, or communication support.</p>
-            <ul class="list">
-              <li>Describe the workflow or task</li>
-              <li>Share the result or output</li>
-              <li>Explain the value to AEC teams</li>
-            </ul>
-          </article>
-
-          <article class="project-card">
-            <div class="tag">Use Case 03</div>
-            <h3>Construction Planning Insight</h3>
-            <p>Highlight an example involving sequencing, logistics, safety review, scheduling, or another construction-related application.</p>
-            <ul class="list">
-              <li>Brief project summary</li>
-              <li>Main lesson learned</li>
-              <li>Relevance to construction practice</li>
-            </ul>
-          </article>
-
-          <article class="project-card">
-            <div class="tag">Use Case 04</div>
-            <h3>Visual Analysis or Classification</h3>
-            <p>Use for assignments involving image analysis, object recognition, visual data interpretation, or pattern detection.</p>
-            <ul class="list">
-              <li>Describe the data or imagery</li>
-              <li>Explain how AI was involved</li>
-              <li>Connect the work to built environment use</li>
-            </ul>
-          </article>
-
-          <article class="project-card">
-            <div class="tag">Use Case 05</div>
-            <h3>Ethics and Professional Responsibility</h3>
-            <p>Include reflections or written work that examined bias, trust, authorship, labor, or responsible implementation of AI.</p>
-            <ul class="list">
-              <li>Summarize the issue or argument</li>
-              <li>State your perspective</li>
-              <li>Explain its importance in practice</li>
-            </ul>
-          </article>
-
-          <article class="project-card">
-            <div class="tag">Use Case 06</div>
-            <h3>Final Project or Synthesis</h3>
-            <p>Use for a culminating assignment that brings together course ideas, methods, and reflections into one larger project.</p>
-            <ul class="list">
-              <li>Project objective</li>
-              <li>Process and method</li>
-              <li>Main outcomes and relevance</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <span>Page Strategy</span>
-            <h2>How to Present Each Project</h2>
-          </div>
-          <p>
-            A simple structure helps readers understand each artifact quickly. This is especially helpful when faculty or classmates are scanning multiple projects in one sitting.
-          </p>
-        </div>
-
-        <div class="feature-layout">
+        <div class="content-grid">
           <article class="card">
-            <h3>Recommended Project Elements</h3>
-            <ul class="list">
-              <li>Project title</li>
-              <li>Short description of the assignment</li>
-              <li>Tool, method, or AI concept used</li>
-              <li>Screenshot, diagram, or other visual</li>
-              <li>Why the project is helpful or relevant</li>
-            </ul>
+            <h3>Core Function</h3>
+            <p>
+              The agent is built to analyze standard AIA agreements and explain how the Owner, Architect, and Contractor would each likely approach conflict resolution under common AIA risk-allocation patterns. It is intended as an educational and project-administration support tool, not a source of legal advice.
+            </p>
           </article>
 
-          <div class="template-grid">
-            <article class="template-card">
-              <h4>What It Is</h4>
-              <p>Briefly name and describe the assignment or project artifact in 1–2 sentences.</p>
-            </article>
-            <article class="template-card">
-              <h4>How AI Was Used</h4>
-              <p>Explain whether AI supported analysis, automation, ideation, visualization, or another task.</p>
-            </article>
-            <article class="template-card">
-              <h4>Why It Matters</h4>
-              <p>Connect the work to design quality, efficiency, communication, risk reduction, or other AEC values.</p>
-            </article>
-            <article class="template-card">
-              <h4>Reflection</h4>
-              <p>Share what you learned, what worked well, and what questions remain for future exploration.</p>
-            </article>
-          </div>
+          <article class="card">
+            <h3>Knowledge and Context</h3>
+            <p>
+              To be effective, the mini-agent needs familiarity with AIA contracts, project administration workflows, and the typical motivations of owners, designers, and contractors when responding to issues such as payment disputes, delays, change orders, defective work, and substantial completion disagreements.
+            </p>
+          </article>
         </div>
       </div>
     </section>
@@ -311,51 +215,119 @@
       <div class="container">
         <div class="section-heading">
           <div>
-            <span>Optional Expansion</span>
-            <h2>Ways to Grow This Page</h2>
+            <span>Response Method</span>
+            <h2>How the Agent Structures Analysis</h2>
           </div>
           <p>
-            You can keep this page simple for now or expand it later as your portfolio develops.
+            The custom GPT was instructed to follow a consistent nine-part framework so every dispute is analyzed in a clear, balanced, and repeatable way.
           </p>
         </div>
 
-        <div class="gallery-grid">
-          <article class="project-card">
-            <div class="tag">Enhancement</div>
-            <h3>Project Detail Pages</h3>
-            <p>Create a dedicated HTML page for major assignments and link to them from the main gallery.</p>
+        <div class="analysis-grid">
+          <article class="analysis-box">
+            <h4>Conflict Summary</h4>
+            <p>Restates the dispute in neutral language and identifies missing facts that could materially change the analysis.</p>
           </article>
-          <article class="project-card">
-            <div class="tag">Enhancement</div>
-            <h3>Filtered Categories</h3>
-            <p>Group projects by themes like design, construction, ethics, communication, or workflow automation.</p>
+          <article class="analysis-box">
+            <h4>Contract Issues Triggered</h4>
+            <p>Identifies notice, timing, payment, design responsibility, change authorization, delays, defective work, and other contract administration issues.</p>
           </article>
-          <article class="project-card">
-            <div class="tag">Enhancement</div>
-            <h3>Embedded Media</h3>
-            <p>Add PDFs, presentation slides, images, videos, or interactive visuals to enrich each entry.</p>
+          <article class="analysis-box">
+            <h4>Stakeholder Perspectives</h4>
+            <p>Explains the likely position of the Owner, Architect, and Contractor, including business concerns, contract arguments, risk exposure, and documentation needs.</p>
+          </article>
+          <article class="analysis-box">
+            <h4>Integrated Resolution Path</h4>
+            <p>Shows where parties align, where they are vulnerable, and what sequence of notices, directives, claims, mediation, or escalation may apply.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <div class="container">
-      <div class="footer-box">
-        <div class="eyebrow">Back to Start</div>
-        <h2>Return to the Homepage</h2>
-        <p>
-          With these pages in place, you now have the structure for a complete course portfolio that can be uploaded directly to GitHub Pages.
-        </p>
-        <a class="btn" href="index.html">Go to Homepage</a>
-      </div>
-
-      <footer>
-        <div class="footer-bar">
-          <p>© 2026 Your Name · AI in Design and Construction Portfolio</p>
-          <p>Built for GitHub Pages</p>
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span>Assignment Goals</span>
+            <h2>Design Intent for the Mini-Agent</h2>
+          </div>
+          <p>
+            The project was developed as a contract-analysis mini-agent that could support project teams by translating complicated disputes into a more organized, actionable, and collaborative framework.
+          </p>
         </div>
-      </footer>
-    </div>
-  </main>
-</body>
-</html>
+
+        <div class="content-grid">
+          <article class="card">
+            <h3>What the Agent Produces</h3>
+            <ul class="list">
+              <li>A neutral summary of the conflict</li>
+              <li>A 360-degree perspective across all three major parties</li>
+              <li>Practical next steps for de-escalation and resolution</li>
+              <li>A risk snapshot rating each party's position as strong, moderate, or weak</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Key Guardrails</h3>
+            <ul class="list">
+              <li>Does not provide legal advice</li>
+              <li>Does not fabricate AIA clause language</li>
+              <li>Flags when facts are incomplete</li>
+              <li>Notes when contract editions, amendments, or supplementary conditions may change the outcome</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span>Performance Reflection</span>
+            <h2>What Worked and What Could Improve</h2>
+          </div>
+          <p>
+            In testing, the agent performed well in producing detailed outputs and following the required structure. It adapted to different project delivery scenarios and handled complex consultant-related issues effectively, but there is still room to improve clarity and speed.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <strong>1</strong>
+            <h3>Strengths</h3>
+            <p>The tool consistently followed the nine-step framework and generated detailed, organized responses across multiple test scenarios.</p>
+          </article>
+          <article class="step-card">
+            <strong>2</strong>
+            <h3>Limitations</h3>
+            <p>The responses were often long, and the agent would benefit from citing specific AIA sections more directly for faster back-checking.</p>
+          </article>
+          <article class="step-card">
+            <strong>3</strong>
+            <h3>Future Potential</h3>
+            <p>With additional training, the tool could be refined to produce shorter table-based outputs and eventually anticipate future project conflicts using project progress data.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span>Tool Access</span>
+            <h2>Launch the Custom GPT</h2>
+          </div>
+          <p>
+            The direct link below opens the public version of AIA Conflict Navigator.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Direct Link</h3>
+          <p>
+            Use this custom GPT to explore contract-based conflict analysis through the perspectives of the Owner, Architect, and Contractor.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://chatgpt.com/g/g-69b318fbd2f8819185a5a9d3ff29b2cb-aia-conflict-navigator" target="_blank" rel="noopener
