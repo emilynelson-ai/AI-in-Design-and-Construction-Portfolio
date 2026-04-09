@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI in AEC Use Cases | AI in Design & Construction Portfolio</title>
-  <meta name="description" content="Emily Nelson's AIA Conflict Navigator custom AI agent for contract-based conflict analysis in design and construction." />
+  <title>AI in AEC Use Cases | Emily Nelson</title>
+  <meta
+    name="description"
+    content="Emily Nelson's AIA Conflict Navigator custom AI agent for contract-based conflict analysis in design and construction."
+  />
   <style>
     :root {
       --coffee-bean: #210f04;
@@ -17,129 +20,463 @@
       --max-width: 1180px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: linear-gradient(180deg, #f7f1eb 0%, #efe4d8 100%);
       color: var(--coffee-bean);
       line-height: 1.6;
     }
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(var(--max-width), calc(100% - 2rem)); margin: 0 auto; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 2rem));
+      margin: 0 auto;
+    }
 
     .site-header {
-      position: sticky; top: 0; z-index: 1000;
-      background: rgba(255,253,250,0.88); backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(33,15,4,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 253, 250, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(33, 15, 4, 0.08);
     }
-    .nav-wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 0; }
-    .brand { font-size: 1.05rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
-    .brand span { display: block; margin-top: 0.15rem; font-size: 0.78rem; color: var(--chocolate-brown); letter-spacing: 0.14em; }
-    .nav-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .nav-links a { padding: 0.7rem 1rem; border-radius: 999px; font-size: 0.92rem; font-weight: 700; }
-    .nav-links a:hover, .nav-links a:focus-visible { background: rgba(147,75,0,0.12); outline: none; }
-    .nav-links .active { background: var(--coffee-bean); color: var(--white); }
 
-    .hero { padding: 5rem 0 3rem; }
-    .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 1.2rem; align-items: stretch; }
-    .hero-main, .hero-side {
-      border-radius: 30px; overflow: hidden; box-shadow: var(--shadow); position: relative;
+    .nav-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
     }
-    .hero-main {
-      background: linear-gradient(135deg, var(--coffee-bean), var(--dark-walnut) 52%, var(--dark-garnet));
-      color: var(--white); padding: 2.5rem;
+
+    .brand {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
+
+    .brand span {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: 0.78rem;
+      color: var(--chocolate-brown);
+      letter-spacing: 0.14em;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .nav-links a {
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: rgba(147, 75, 0, 0.12);
+      outline: none;
+    }
+
+    .nav-links .active {
+      background: var(--coffee-bean);
+      color: var(--white);
+    }
+
+    .hero {
+      padding: 5rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.2rem;
+      align-items: stretch;
+    }
+
+    .hero-main,
     .hero-side {
-      background: rgba(255,253,250,0.88); border: 1px solid rgba(33,15,4,0.08); padding: 1.5rem;
-      display: grid; gap: 1rem;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      position: relative;
     }
+
+    .hero-main {
+      background: linear-gradient(
+        135deg,
+        var(--coffee-bean),
+        var(--dark-walnut) 52%,
+        var(--dark-garnet)
+      );
+      color: var(--white);
+      padding: 2.5rem;
+    }
+
+    .hero-side {
+      background: rgba(255, 253, 250, 0.88);
+      border: 1px solid rgba(33, 15, 4, 0.08);
+      padding: 1.5rem;
+      display: grid;
+      gap: 1rem;
+    }
+
     .eyebrow {
-      display: inline-block; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.75rem; font-weight: 800;
-      color: #ffd8b0; margin-bottom: 1rem;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #ffd8b0;
+      margin-bottom: 1rem;
     }
-    h1 { font-size: clamp(2.4rem, 7vw, 4.8rem); line-height: 0.96; text-transform: uppercase; margin-bottom: 1rem; }
-    .hero-main p { max-width: 58ch; color: rgba(255,253,250,0.86); }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.6rem; }
+
+    h1 {
+      font-size: clamp(2.4rem, 7vw, 4.8rem);
+      line-height: 0.96;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero-main p {
+      max-width: 58ch;
+      color: rgba(255, 253, 250, 0.86);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.6rem;
+    }
+
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; padding: 0.95rem 1.25rem; border-radius: 999px;
-      font-weight: 700; transition: 0.25s ease; border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
     }
-    .btn-primary { background: var(--copperwood); color: var(--white); }
-    .btn-primary:hover, .btn-primary:focus-visible { background: #cb7a10; outline: none; }
-    .btn-secondary { border-color: rgba(255,253,250,0.28); color: var(--white); }
-    .btn-secondary:hover, .btn-secondary:focus-visible { background: rgba(255,253,250,0.08); outline: none; }
+
+    .btn-primary {
+      background: var(--copperwood);
+      color: var(--white);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: #cb7a10;
+      outline: none;
+    }
+
+    .btn-secondary {
+      border-color: rgba(255, 253, 250, 0.28);
+      color: var(--white);
+      background: transparent;
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: rgba(255, 253, 250, 0.08);
+      outline: none;
+    }
 
     .mini-card {
-      border-radius: 20px; padding: 1rem; background: linear-gradient(180deg, rgba(187,107,0,0.12), rgba(147,75,0,0.04));
-      border: 1px solid rgba(147,75,0,0.12);
+      border-radius: 20px;
+      padding: 1rem;
+      background: linear-gradient(
+        180deg,
+        rgba(187, 107, 0, 0.12),
+        rgba(147, 75, 0, 0.04)
+      );
+      border: 1px solid rgba(147, 75, 0, 0.12);
     }
-    .mini-card h3 { margin-bottom: 0.45rem; font-size: 1rem; color: var(--dark-walnut); }
-    .mini-card p { color: rgba(33,15,4,0.8); font-size: 0.94rem; }
 
-    .section { padding: 1rem 0 4rem; }
-    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1.5rem; }
-    .section-heading span { display: inline-block; margin-bottom: 0.45rem; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.74rem; font-weight: 800; color: var(--chocolate-brown); }
-    .section-heading h2 { font-size: clamp(1.9rem, 4vw, 3.2rem); text-transform: uppercase; line-height: 1.02; }
-    .section-heading p { max-width: 56ch; color: rgba(33,15,4,0.76); }
+    .mini-card h3 {
+      margin-bottom: 0.45rem;
+      font-size: 1rem;
+      color: var(--dark-walnut);
+    }
 
-    .content-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 1.2rem; }
+    .mini-card p {
+      color: rgba(33, 15, 4, 0.8);
+      font-size: 0.94rem;
+    }
+
+    .section {
+      padding: 1rem 0 4rem;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-heading span {
+      display: inline-block;
+      margin-bottom: 0.45rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: var(--chocolate-brown);
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      text-transform: uppercase;
+      line-height: 1.02;
+    }
+
+    .section-heading p {
+      max-width: 56ch;
+      color: rgba(33, 15, 4, 0.76);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 1.2rem;
+    }
+
     .card {
-      background: rgba(255,253,250,0.9); border: 1px solid rgba(33,15,4,0.08); border-radius: 24px; padding: 1.5rem;
-      box-shadow: 0 10px 28px rgba(33,15,4,0.07);
+      background: rgba(255, 253, 250, 0.9);
+      border: 1px solid rgba(33, 15, 4, 0.08);
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 28px rgba(33, 15, 4, 0.07);
     }
-    .card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; }
-    .card p { color: rgba(33,15,4,0.79); }
-    .list { list-style: none; display: grid; gap: 0.75rem; margin-top: 1rem; }
-    .list li { position: relative; padding-left: 1.1rem; color: rgba(33,15,4,0.84); }
-    .list li::before { content: ""; position: absolute; left: 0; top: 0.66rem; width: 7px; height: 7px; border-radius: 50%; background: var(--copperwood); }
 
-    .analysis-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .card p {
+      color: rgba(33, 15, 4, 0.79);
+    }
+
+    .list {
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 1.1rem;
+      color: rgba(33, 15, 4, 0.84);
+    }
+
+    .list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.66rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--copperwood);
+    }
+
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
     .analysis-box {
-      background: linear-gradient(180deg, rgba(187,107,0,0.12), rgba(147,75,0,0.04));
-      border: 1px solid rgba(147,75,0,0.12); border-radius: 20px; padding: 1.1rem;
+      background: linear-gradient(
+        180deg,
+        rgba(187, 107, 0, 0.12),
+        rgba(147, 75, 0, 0.04)
+      );
+      border: 1px solid rgba(147, 75, 0, 0.12);
+      border-radius: 20px;
+      padding: 1.1rem;
     }
-    .analysis-box h4 { margin-bottom: 0.55rem; color: var(--dark-walnut); font-size: 1rem; }
-    .analysis-box p { margin-bottom: 0; font-size: 0.95rem; color: rgba(33,15,4,0.8); }
 
-    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; }
+    .analysis-box h4 {
+      margin-bottom: 0.55rem;
+      color: var(--dark-walnut);
+      font-size: 1rem;
+    }
+
+    .analysis-box p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+      color: rgba(33, 15, 4, 0.8);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
     .step-card {
-      background: rgba(255,253,250,0.88); border: 1px solid rgba(33,15,4,0.08); border-radius: 22px; padding: 1.25rem;
-      box-shadow: 0 10px 28px rgba(33,15,4,0.07);
+      background: rgba(255, 253, 250, 0.88);
+      border: 1px solid rgba(33, 15, 4, 0.08);
+      border-radius: 22px;
+      padding: 1.25rem;
+      box-shadow: 0 10px 28px rgba(33, 15, 4, 0.07);
     }
+
     .step-card strong {
-      display: inline-flex; width: 2rem; height: 2rem; border-radius: 50%; align-items: center; justify-content: center;
-      background: var(--dark-garnet); color: var(--white); margin-bottom: 0.8rem;
+      display: inline-flex;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      background: var(--dark-garnet);
+      color: var(--white);
+      margin-bottom: 0.8rem;
     }
-    .step-card h3 { font-size: 1.08rem; margin-bottom: 0.45rem; }
-    .step-card p { color: rgba(33,15,4,0.78); }
+
+    .step-card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .step-card p {
+      color: rgba(33, 15, 4, 0.78);
+    }
+
+    .tool-link-card {
+      background: rgba(255, 253, 250, 0.92);
+      border: 1px solid rgba(33, 15, 4, 0.08);
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 28px rgba(33, 15, 4, 0.07);
+    }
+
+    .tool-link-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .tool-link-card p {
+      color: rgba(33, 15, 4, 0.79);
+    }
+
+    .tool-link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-weight: 700;
+      color: var(--dark-garnet);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      word-break: break-word;
+    }
+
+    .tool-link:hover,
+    .tool-link:focus-visible {
+      color: var(--chocolate-brown);
+      outline: none;
+    }
 
     .footer-box {
-      margin: 0 0 3rem; background: linear-gradient(135deg, var(--dark-garnet), var(--coffee-bean));
-      color: var(--white); border-radius: 28px; padding: 2rem; box-shadow: var(--shadow);
+      margin: 0 0 3rem;
+      background: linear-gradient(135deg, var(--dark-garnet), var(--coffee-bean));
+      color: var(--white);
+      border-radius: 28px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
     }
-    .footer-box p { margin-top: 0.8rem; color: rgba(255,253,250,0.84); max-width: 58ch; }
-    footer { padding-bottom: 2rem; }
+
+    .footer-box p {
+      margin-top: 0.8rem;
+      color: rgba(255, 253, 250, 0.84);
+      max-width: 58ch;
+    }
+
+    footer {
+      padding-bottom: 2rem;
+    }
+
     .footer-bar {
-      border-top: 1px solid rgba(33,15,4,0.12); padding-top: 1rem; display: flex; justify-content: space-between; flex-wrap: wrap;
-      gap: 1rem; color: rgba(33,15,4,0.68); font-size: 0.92rem;
+      border-top: 1px solid rgba(33, 15, 4, 0.12);
+      padding-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: rgba(33, 15, 4, 0.68);
+      font-size: 0.92rem;
     }
 
     @media (max-width: 980px) {
-      .hero-grid, .content-grid, .analysis-grid, .steps-grid { grid-template-columns: 1fr; }
-      .section-heading { flex-direction: column; align-items: start; }
+      .hero-grid,
+      .content-grid,
+      .analysis-grid,
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        flex-direction: column;
+        align-items: start;
+      }
     }
+
     @media (max-width: 700px) {
-      .nav-wrap { flex-direction: column; align-items: flex-start; }
-      .hero-main, .hero-side, .card, .step-card, .footer-box { padding: 1.4rem; }
-      .hero { padding-top: 3.5rem; }
+      .nav-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-main,
+      .hero-side,
+      .card,
+      .step-card,
+      .tool-link-card,
+      .footer-box {
+        padding: 1.4rem;
+      }
+
+      .hero {
+        padding-top: 3.5rem;
+      }
     }
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="index.html">AI in Design &amp; Construction<span>Graduate Portfolio</span></a>
+      <a class="brand" href="index.html">
+        AI in Design &amp; Construction
+        <span>Emily Nelson</span>
+      </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About Me</a>
@@ -156,10 +493,20 @@
           <div class="eyebrow">Custom AI Agent Use Case</div>
           <h1>AIA Conflict Navigator</h1>
           <p>
-            AIA Conflict Navigator is a custom GPT designed to analyze project conflicts through standard AIA contract frameworks and provide a balanced, 360-degree perspective for the Owner, Architect, and Contractor. The goal is to help teams move past emotion-driven disputes and toward practical, contract-based resolution pathways.
+            AIA Conflict Navigator is a custom GPT designed to analyze project conflicts through
+            standard AIA contract frameworks and provide a balanced, 360-degree perspective for
+            the Owner, Architect, and Contractor. The goal is to help teams move past
+            emotion-driven disputes and toward practical, contract-based resolution pathways.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://chatgpt.com/g/g-69b318fbd2f8819185a5a9d3ff29b2cb-aia-conflict-navigator" target="_blank" rel="noopener noreferrer">Open Custom GPT</a>
+            <a
+              class="btn btn-primary"
+              href="https://chatgpt.com/g/g-69b318fbd2f8819185a5a9d3ff29b2cb-aia-conflict-navigator"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Custom GPT
+            </a>
             <a class="btn btn-secondary" href="#details">View Use Case Details</a>
           </div>
         </article>
@@ -167,15 +514,25 @@
         <aside class="hero-side">
           <div class="mini-card">
             <h3>Problem Addressed</h3>
-            <p>When conflict arises on a project, ego and emotion can overshadow resolution. This mini-agent uses the contract to re-center the discussion on roles, obligations, and practical next steps.</p>
+            <p>
+              When conflict arises on a project, ego and emotion can overshadow resolution. This
+              mini-agent uses the contract to re-center the discussion on roles, obligations, and
+              practical next steps.
+            </p>
           </div>
           <div class="mini-card">
             <h3>Who It Serves</h3>
-            <p>Owners, designers, and contractors can all use the tool to better understand where perspectives align, where they conflict, and how disputes might be resolved.</p>
+            <p>
+              Owners, designers, and contractors can all use the tool to better understand where
+              perspectives align, where they conflict, and how disputes might be resolved.
+            </p>
           </div>
           <div class="mini-card">
             <h3>Expected Output</h3>
-            <p>The tool produces a 360-degree analysis, resolution pathways, and a strength rating of each party’s position to help move the project forward.</p>
+            <p>
+              The tool produces a 360-degree analysis, resolution pathways, and a strength rating
+              of each party’s position to help move the project forward.
+            </p>
           </div>
         </aside>
       </div>
@@ -189,7 +546,9 @@
             <h2>Why This Agent Matters in AEC</h2>
           </div>
           <p>
-            Contract interpretation and project conflict are recurring challenges in design and construction. This custom GPT demonstrates how AI can support conflict analysis without replacing professional judgment or legal counsel.
+            Contract interpretation and project conflict are recurring challenges in design and
+            construction. This custom GPT demonstrates how AI can support conflict analysis without
+            replacing professional judgment or legal counsel.
           </p>
         </div>
 
@@ -197,14 +556,20 @@
           <article class="card">
             <h3>Core Function</h3>
             <p>
-              The agent is built to analyze standard AIA agreements and explain how the Owner, Architect, and Contractor would each likely approach conflict resolution under common AIA risk-allocation patterns. It is intended as an educational and project-administration support tool, not a source of legal advice.
+              The agent is built to analyze standard AIA agreements and explain how the Owner,
+              Architect, and Contractor would each likely approach conflict resolution under common
+              AIA risk-allocation patterns. It is intended as an educational and
+              project-administration support tool, not a source of legal advice.
             </p>
           </article>
 
           <article class="card">
             <h3>Knowledge and Context</h3>
             <p>
-              To be effective, the mini-agent needs familiarity with AIA contracts, project administration workflows, and the typical motivations of owners, designers, and contractors when responding to issues such as payment disputes, delays, change orders, defective work, and substantial completion disagreements.
+              To be effective, the mini-agent needs familiarity with AIA contracts, project
+              administration workflows, and the typical motivations of owners, designers, and
+              contractors when responding to issues such as payment disputes, delays, change
+              orders, defective work, and substantial completion disagreements.
             </p>
           </article>
         </div>
@@ -219,26 +584,39 @@
             <h2>How the Agent Structures Analysis</h2>
           </div>
           <p>
-            The custom GPT was instructed to follow a consistent nine-part framework so every dispute is analyzed in a clear, balanced, and repeatable way.
+            The custom GPT was instructed to follow a consistent nine-part framework so every
+            dispute is analyzed in a clear, balanced, and repeatable way.
           </p>
         </div>
 
         <div class="analysis-grid">
           <article class="analysis-box">
             <h4>Conflict Summary</h4>
-            <p>Restates the dispute in neutral language and identifies missing facts that could materially change the analysis.</p>
+            <p>
+              Restates the dispute in neutral language and identifies missing facts that could
+              materially change the analysis.
+            </p>
           </article>
           <article class="analysis-box">
             <h4>Contract Issues Triggered</h4>
-            <p>Identifies notice, timing, payment, design responsibility, change authorization, delays, defective work, and other contract administration issues.</p>
+            <p>
+              Identifies notice, timing, payment, design responsibility, change authorization,
+              delays, defective work, and other contract administration issues.
+            </p>
           </article>
           <article class="analysis-box">
             <h4>Stakeholder Perspectives</h4>
-            <p>Explains the likely position of the Owner, Architect, and Contractor, including business concerns, contract arguments, risk exposure, and documentation needs.</p>
+            <p>
+              Explains the likely position of the Owner, Architect, and Contractor, including
+              business concerns, contract arguments, risk exposure, and documentation needs.
+            </p>
           </article>
           <article class="analysis-box">
             <h4>Integrated Resolution Path</h4>
-            <p>Shows where parties align, where they are vulnerable, and what sequence of notices, directives, claims, mediation, or escalation may apply.</p>
+            <p>
+              Shows where parties align, where they are vulnerable, and what sequence of notices,
+              directives, claims, mediation, or escalation may apply.
+            </p>
           </article>
         </div>
       </div>
@@ -252,7 +630,9 @@
             <h2>Design Intent for the Mini-Agent</h2>
           </div>
           <p>
-            The project was developed as a contract-analysis mini-agent that could support project teams by translating complicated disputes into a more organized, actionable, and collaborative framework.
+            The project was developed as a contract-analysis mini-agent that could support project
+            teams by translating complicated disputes into a more organized, actionable, and
+            collaborative framework.
           </p>
         </div>
 
@@ -263,7 +643,7 @@
               <li>A neutral summary of the conflict</li>
               <li>A 360-degree perspective across all three major parties</li>
               <li>Practical next steps for de-escalation and resolution</li>
-              <li>A risk snapshot rating each party's position as strong, moderate, or weak</li>
+              <li>A risk snapshot rating each party’s position as strong, moderate, or weak</li>
             </ul>
           </article>
 
@@ -273,7 +653,10 @@
               <li>Does not provide legal advice</li>
               <li>Does not fabricate AIA clause language</li>
               <li>Flags when facts are incomplete</li>
-              <li>Notes when contract editions, amendments, or supplementary conditions may change the outcome</li>
+              <li>
+                Notes when contract editions, amendments, or supplementary conditions may change
+                the outcome
+              </li>
             </ul>
           </article>
         </div>
@@ -288,7 +671,10 @@
             <h2>What Worked and What Could Improve</h2>
           </div>
           <p>
-            In testing, the agent performed well in producing detailed outputs and following the required structure. It adapted to different project delivery scenarios and handled complex consultant-related issues effectively, but there is still room to improve clarity and speed.
+            In testing, the agent performed well in producing detailed outputs and following the
+            required structure. It adapted to different project delivery scenarios and handled
+            complex consultant-related issues effectively, but there is still room to improve
+            clarity and speed.
           </p>
         </div>
 
@@ -296,17 +682,27 @@
           <article class="step-card">
             <strong>1</strong>
             <h3>Strengths</h3>
-            <p>The tool consistently followed the nine-step framework and generated detailed, organized responses across multiple test scenarios.</p>
+            <p>
+              The tool consistently followed the nine-step framework and generated detailed,
+              organized responses across multiple test scenarios.
+            </p>
           </article>
           <article class="step-card">
             <strong>2</strong>
             <h3>Limitations</h3>
-            <p>The responses were often long, and the agent would benefit from citing specific AIA sections more directly for faster back-checking.</p>
+            <p>
+              The responses were often long, and the agent would benefit from citing specific AIA
+              sections more directly for faster back-checking.
+            </p>
           </article>
           <article class="step-card">
             <strong>3</strong>
             <h3>Future Potential</h3>
-            <p>With additional training, the tool could be refined to produce shorter table-based outputs and eventually anticipate future project conflicts using project progress data.</p>
+            <p>
+              With additional training, the tool could be refined to produce shorter table-based
+              outputs and eventually anticipate future project conflicts using project progress
+              data.
+            </p>
           </article>
         </div>
       </div>
@@ -324,10 +720,54 @@
           </p>
         </div>
 
-        <div class="card">
+        <div class="tool-link-card">
           <h3>Direct Link</h3>
           <p>
-            Use this custom GPT to explore contract-based conflict analysis through the perspectives of the Owner, Architect, and Contractor.
+            Use this custom GPT to explore contract-based conflict analysis through the
+            perspectives of the Owner, Architect, and Contractor.
           </p>
+
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://chatgpt.com/g/g-69b318fbd2f8819185a5a9d3ff29b2cb-aia-conflict-navigator" target="_blank" rel="noopener
+            <a
+              class="btn btn-primary"
+              href="https://chatgpt.com/g/g-69b318fbd2f8819185a5a9d3ff29b2cb-aia-conflict-navigator"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open AIA Conflict Navigator
+            </a>
+          </div>
+
+          <a
+            class="tool-link"
+            href="https://chatgpt.com/g/g-69b318fbd2f8819185a5a9d3ff29b2cb-aia-conflict-navigator"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://chatgpt.com/g/g-69b318fbd2f8819185a5a9d3ff29b2cb-aia-conflict-navigator
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="footer-box">
+        <div class="eyebrow">Back to Start</div>
+        <h2>Return to the Homepage</h2>
+        <p>
+          This use case highlights how custom AI tools can support project administration,
+          communication, and structured decision-making in the AEC industry.
+        </p>
+        <a class="btn btn-primary" href="index.html">Go to Homepage</a>
+      </div>
+
+      <footer>
+        <div class="footer-bar">
+          <p>© 2026 Emily Nelson · AI in Design and Construction Portfolio</p>
+          <p>Built for GitHub Pages</p>
+        </div>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>
