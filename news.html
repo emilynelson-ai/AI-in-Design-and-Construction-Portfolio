@@ -6,7 +6,7 @@
   <title>Weekly AI News | Emily Nelson</title>
   <meta
     name="description"
-    content="Seven themed AI news analyses by Emily Nelson covering AI past and future, AGI, ASI, AI benchmarks, general AI agents, AEC AI agents, and quantum computing."
+    content="Seven themed AI news analyses by Emily Nelson covering AI past and future, AGI, ASI, AI benchmarks, general AI agents, AEC industry AI agents, and quantum computing."
   />
   <style>
     :root {
@@ -43,7 +43,8 @@
     }
 
     img,
-    video {
+    video,
+    iframe {
       display: block;
       max-width: 100%;
     }
@@ -394,13 +395,9 @@
 
     .media-gallery {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
       gap: 1rem;
       align-items: start;
-    }
-
-    .media-gallery.single {
-      grid-template-columns: 1fr;
     }
 
     figure.media-figure {
@@ -417,13 +414,6 @@
       background: #fff;
     }
 
-    .media-figure.tall img {
-      max-height: 540px;
-      width: 100%;
-      object-fit: cover;
-      object-position: top;
-    }
-
     figcaption {
       padding: 0.8rem 0.95rem;
       font-size: 0.9rem;
@@ -438,7 +428,8 @@
     }
 
     .player-card,
-    .player-note {
+    .player-note,
+    .pdf-viewer-wrap {
       background: rgba(255, 253, 250, 0.92);
       border: 1px solid rgba(33, 15, 4, 0.08);
       border-radius: 18px;
@@ -446,13 +437,15 @@
     }
 
     .player-card h5,
-    .player-note h5 {
+    .player-note h5,
+    .pdf-viewer-wrap h5 {
       font-size: 1rem;
       margin-bottom: 0.55rem;
       color: var(--dark-walnut);
     }
 
-    .player-note p {
+    .player-note p,
+    .pdf-viewer-wrap p {
       font-size: 0.92rem;
       color: rgba(33, 15, 4, 0.78);
     }
@@ -463,6 +456,33 @@
       margin-top: 0.5rem;
       border-radius: 12px;
       background: #fff;
+    }
+
+    .pdf-frame {
+      width: 100%;
+      height: 720px;
+      border: 1px solid rgba(33, 15, 4, 0.08);
+      border-radius: 14px;
+      background: #fff;
+      margin-top: 0.8rem;
+    }
+
+    .pdf-link {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 0.85rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--dark-garnet);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      word-break: break-word;
+    }
+
+    .pdf-link:hover,
+    .pdf-link:focus-visible {
+      color: var(--chocolate-brown);
+      outline: none;
     }
 
     .footer-box {
@@ -524,7 +544,6 @@
 
       .hero-grid,
       .summary-grid,
-      .media-gallery,
       .player-grid {
         grid-template-columns: 1fr;
       }
@@ -558,6 +577,10 @@
       .hero {
         padding-top: 3.5rem;
       }
+
+      .pdf-frame {
+        height: 520px;
+      }
     }
   </style>
 </head>
@@ -586,7 +609,7 @@
           <p>
             This page organizes my AI news analyses by theme, moving from broad perspectives on AI’s past and future
             to AGI, ASI, benchmarks, agents, and quantum computing. Each section includes the original article,
-            the AI tools used, and an interactive summary presented through images, audio, or video.
+            the AI tools used, and an interactive summary presented through images, audio, video, or embedded presentation files.
           </p>
 
           <div class="hero-grid">
@@ -680,10 +703,12 @@
               <div class="interactive-block">
                 <div class="interactive-label">Interactive Summary</div>
                 <div class="interactive-card">
-                  <div class="media-gallery single">
+                  <div class="media-gallery">
                     <figure class="media-figure">
                       <img src="./AI News - Past & Future - Infographic.png" alt="AI Past and Future infographic" />
-                      <figcaption>NotebookLM infographic highlighting the risks of blind AI adoption and the value of human-centered practices for AI integration.</figcaption>
+                      <figcaption>
+                        NotebookLM infographic highlighting the risks of blind AI adoption and the value of human-centered practices for AI integration.
+                      </figcaption>
                     </figure>
                   </div>
                 </div>
@@ -739,7 +764,14 @@
                     </div>
                     <div class="player-note">
                       <h5>Media Overview</h5>
-                      <p>This NotebookLM-generated video overview summarizes the article’s core claims, major uncertainties around AGI timing, and the potential implications for society and the AEC industry.</p>
+                      <p>
+                        This NotebookLM-generated video overview summarizes the article’s core claims,
+                        major uncertainties around AGI timing, and the potential implications for society and the AEC industry.
+                      </p>
+                      <p style="margin-top: 0.75rem;">
+                        To make this play, upload the file in the same folder as <strong>news.html</strong> with this exact name:
+                        <strong>AI News - AGI - Video Overview.mp4</strong>.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -785,10 +817,12 @@
               <div class="interactive-block">
                 <div class="interactive-label">Interactive Summary</div>
                 <div class="interactive-card">
-                  <div class="media-gallery single">
+                  <div class="media-gallery">
                     <figure class="media-figure">
                       <img src="./AI News - ASI - Infographic.png" alt="ASI infographic" />
-                      <figcaption>NotebookLM infographic showing ASI’s progression from narrow AI to superintelligence, along with societal scenarios and AEC implications.</figcaption>
+                      <figcaption>
+                        NotebookLM infographic showing ASI’s progression from narrow AI to superintelligence, along with societal scenarios and AEC implications.
+                      </figcaption>
                     </figure>
                   </div>
                 </div>
@@ -844,7 +878,10 @@
                     </div>
                     <div class="player-note">
                       <h5>Media Overview</h5>
-                      <p>This audio overview captures the shift from academic benchmarking to performance measures that better reflect value creation, applied problem-solving, and professional usefulness.</p>
+                      <p>
+                        This audio overview captures the shift from academic benchmarking to performance measures
+                        that better reflect value creation, applied problem-solving, and professional usefulness.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -890,11 +927,24 @@
               <div class="interactive-block">
                 <div class="interactive-label">Interactive Summary</div>
                 <div class="interactive-card">
-                  <div class="media-gallery single">
-                    <figure class="media-figure tall">
-                      <img src="./AI News - AI Agent General - Presentation.jpg" alt="General AI agents presentation slides" />
-                      <figcaption>Selected slides from the Gamma presentation summarizing the shift from AI as a tool to AI as a teammate and decision participant.</figcaption>
-                    </figure>
+                  <div class="pdf-viewer-wrap">
+                    <h5>Scrollable Presentation Viewer</h5>
+                    <p>
+                      This embedded PDF lets users scroll through the Gamma presentation directly on the page.
+                    </p>
+                    <iframe
+                      class="pdf-frame"
+                      src="./AI News - Agent General Presentation.pdf"
+                      title="General AI Agents presentation"
+                    ></iframe>
+                    <a
+                      class="pdf-link"
+                      href="./AI News - Agent General Presentation.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open General AI Agents presentation in a new tab
+                    </a>
                   </div>
                 </div>
               </div>
@@ -939,11 +989,24 @@
               <div class="interactive-block">
                 <div class="interactive-label">Interactive Summary</div>
                 <div class="interactive-card">
-                  <div class="media-gallery single">
-                    <figure class="media-figure tall">
-                      <img src="./AI News - AI Agent AEC - Presentation.jpg" alt="AEC AI agents presentation slides" />
-                      <figcaption>Selected slides from the Gamma presentation illustrating how AI agents can support architectural workflows, design quality, compliance, sustainability, and digital twins.</figcaption>
-                    </figure>
+                  <div class="pdf-viewer-wrap">
+                    <h5>Scrollable Presentation Viewer</h5>
+                    <p>
+                      This embedded PDF lets users scroll through the Gamma presentation directly on the page.
+                    </p>
+                    <iframe
+                      class="pdf-frame"
+                      src="./AI News - Agent AEC Presentation.pdf"
+                      title="AEC AI Agents presentation"
+                    ></iframe>
+                    <a
+                      class="pdf-link"
+                      href="./AI News - Agent AEC Presentation.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open AEC AI Agents presentation in a new tab
+                    </a>
                   </div>
                 </div>
               </div>
@@ -998,7 +1061,10 @@
                     </div>
                     <div class="player-note">
                       <h5>Media Overview</h5>
-                      <p>This audio summary explains the core ideas behind quantum computing and why NVIDIA’s Ising model matters for future computational breakthroughs.</p>
+                      <p>
+                        This audio summary explains the core ideas behind quantum computing and why NVIDIA’s
+                        Ising model matters for future computational breakthroughs.
+                      </p>
                     </div>
                   </div>
                 </div>
