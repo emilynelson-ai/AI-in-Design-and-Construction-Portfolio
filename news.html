@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI News | Emily Nelson</title>
+  <title>Weekly AI News | Emily Nelson</title>
   <meta
     name="description"
     content="Seven themed AI news analyses by Emily Nelson covering AI past and future, AGI, ASI, AI benchmarks, general AI agents, AEC AI agents, and quantum computing."
@@ -15,11 +15,13 @@
       --dark-garnet: #690500;
       --chocolate-brown: #934b00;
       --copperwood: #bb6b00;
-      --white: #fffdfa;
       --sand: #f8f2ec;
+      --white: #fffdfa;
+      --soft-border: rgba(33, 15, 4, 0.08);
+      --soft-bg: rgba(255, 253, 250, 0.9);
       --shadow: 0 18px 44px rgba(0, 0, 0, 0.14);
       --max-width: 1320px;
-      --sidebar-width: 290px;
+      --sidebar-width: 300px;
       --header-height: 92px;
     }
 
@@ -40,6 +42,12 @@
       line-height: 1.6;
     }
 
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+
     a {
       color: inherit;
       text-decoration: none;
@@ -54,9 +62,9 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 253, 250, 0.88);
+      background: rgba(255, 253, 250, 0.9);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(33, 15, 4, 0.08);
+      border-bottom: 1px solid var(--soft-border);
     }
 
     .nav-wrap {
@@ -64,8 +72,8 @@
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-      padding: 1rem 0;
       min-height: var(--header-height);
+      padding: 1rem 0;
     }
 
     .brand {
@@ -112,16 +120,11 @@
     }
 
     .hero-card {
-      background: linear-gradient(
-        135deg,
-        var(--dark-garnet),
-        var(--coffee-bean) 58%,
-        var(--dark-walnut)
-      );
+      background: linear-gradient(135deg, var(--dark-garnet), var(--coffee-bean) 60%, var(--dark-walnut));
       color: var(--white);
       border-radius: 32px;
-      box-shadow: var(--shadow);
       padding: 2.6rem;
+      box-shadow: var(--shadow);
     }
 
     .eyebrow {
@@ -135,7 +138,7 @@
     }
 
     h1 {
-      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      font-size: clamp(2.4rem, 6vw, 4.7rem);
       line-height: 0.96;
       text-transform: uppercase;
       margin-bottom: 1rem;
@@ -162,12 +165,12 @@
 
     .hero-mini h3 {
       font-size: 1rem;
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.35rem;
     }
 
     .hero-mini p {
       font-size: 0.92rem;
-      color: rgba(255, 253, 250, 0.82);
+      color: rgba(255, 253, 250, 0.84);
     }
 
     .section {
@@ -213,8 +216,8 @@
     .jump-nav {
       position: sticky;
       top: calc(var(--header-height) + 1rem);
-      background: rgba(255, 253, 250, 0.9);
-      border: 1px solid rgba(33, 15, 4, 0.08);
+      background: var(--soft-bg);
+      border: 1px solid var(--soft-border);
       border-radius: 24px;
       padding: 1.25rem;
       box-shadow: 0 10px 28px rgba(33, 15, 4, 0.07);
@@ -265,8 +268,8 @@
 
     .news-card {
       scroll-margin-top: calc(var(--header-height) + 1.25rem);
-      background: rgba(255, 253, 250, 0.9);
-      border: 1px solid rgba(33, 15, 4, 0.08);
+      background: var(--soft-bg);
+      border: 1px solid var(--soft-border);
       border-radius: 28px;
       padding: 1.5rem;
       box-shadow: 0 10px 28px rgba(33, 15, 4, 0.07);
@@ -275,7 +278,7 @@
     .news-top {
       display: flex;
       justify-content: space-between;
-      align-items: start;
+      align-items: flex-start;
       gap: 1rem;
       margin-bottom: 1rem;
     }
@@ -295,14 +298,25 @@
       line-height: 1.1;
     }
 
-    .software-tag {
-      white-space: nowrap;
-      font-size: 0.85rem;
+    .software-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      justify-content: flex-end;
+    }
+
+    .software-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      color: var(--chocolate-brown);
+      color: var(--dark-walnut);
       background: rgba(187, 107, 0, 0.12);
-      padding: 0.45rem 0.7rem;
+      border: 1px solid rgba(147, 75, 0, 0.12);
+      padding: 0.48rem 0.75rem;
       border-radius: 999px;
+      white-space: nowrap;
     }
 
     .meta-row {
@@ -315,6 +329,7 @@
     .meta-pill {
       display: inline-flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 0.45rem;
       padding: 0.55rem 0.8rem;
       border-radius: 999px;
@@ -322,8 +337,6 @@
       font-size: 0.88rem;
       font-weight: 700;
       color: var(--dark-walnut);
-      max-width: 100%;
-      flex-wrap: wrap;
     }
 
     .meta-pill a {
@@ -340,11 +353,7 @@
     }
 
     .summary-box {
-      background: linear-gradient(
-        180deg,
-        rgba(187, 107, 0, 0.12),
-        rgba(147, 75, 0, 0.04)
-      );
+      background: linear-gradient(180deg, rgba(187, 107, 0, 0.12), rgba(147, 75, 0, 0.04));
       border: 1px solid rgba(147, 75, 0, 0.12);
       border-radius: 20px;
       padding: 1rem;
@@ -361,14 +370,100 @@
       color: rgba(33, 15, 4, 0.82);
     }
 
-    .interactive-note {
-      margin-top: 1rem;
-      padding: 1rem;
-      border-radius: 18px;
+    .interactive-block {
+      margin-top: 1.25rem;
+      border-top: 1px solid rgba(33, 15, 4, 0.08);
+      padding-top: 1.25rem;
+    }
+
+    .interactive-label {
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--dark-garnet);
+    }
+
+    .interactive-card {
       background: rgba(105, 5, 0, 0.04);
       border: 1px solid rgba(105, 5, 0, 0.08);
-      color: rgba(33, 15, 4, 0.8);
-      font-size: 0.94rem;
+      border-radius: 22px;
+      padding: 1rem;
+    }
+
+    .media-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .media-gallery.single {
+      grid-template-columns: 1fr;
+    }
+
+    figure.media-figure {
+      background: rgba(255, 253, 250, 0.9);
+      border: 1px solid rgba(33, 15, 4, 0.08);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .media-figure img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .media-figure.tall img {
+      max-height: 540px;
+      width: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    figcaption {
+      padding: 0.8rem 0.95rem;
+      font-size: 0.9rem;
+      color: rgba(33, 15, 4, 0.78);
+    }
+
+    .player-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .player-card,
+    .player-note {
+      background: rgba(255, 253, 250, 0.92);
+      border: 1px solid rgba(33, 15, 4, 0.08);
+      border-radius: 18px;
+      padding: 1rem;
+    }
+
+    .player-card h5,
+    .player-note h5 {
+      font-size: 1rem;
+      margin-bottom: 0.55rem;
+      color: var(--dark-walnut);
+    }
+
+    .player-note p {
+      font-size: 0.92rem;
+      color: rgba(33, 15, 4, 0.78);
+    }
+
+    audio,
+    video {
+      width: 100%;
+      margin-top: 0.5rem;
+      border-radius: 12px;
+      background: #fff;
     }
 
     .footer-box {
@@ -419,12 +514,7 @@
       font-size: 0.92rem;
     }
 
-    @media (max-width: 1100px) {
-      .hero-grid,
-      .summary-grid {
-        grid-template-columns: 1fr;
-      }
-
+    @media (max-width: 1150px) {
       .news-layout {
         grid-template-columns: 1fr;
       }
@@ -432,16 +522,24 @@
       .jump-nav {
         position: static;
       }
+
+      .hero-grid,
+      .summary-grid,
+      .media-gallery,
+      .player-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    @media (max-width: 800px) {
-      .section-heading {
-        flex-direction: column;
-        align-items: start;
-      }
-
+    @media (max-width: 850px) {
+      .section-heading,
       .news-top {
         flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .software-group {
+        justify-content: flex-start;
       }
     }
 
@@ -487,27 +585,27 @@
           <div class="eyebrow">Seven News Themes</div>
           <h1>AI News Archive</h1>
           <p>
-            This page organizes my AI news analyses by theme, moving from broad perspectives on AI’s
-            past and future to AGI, ASI, benchmarks, agents, and quantum computing. Each theme includes
-            the original source, the AI software used, and selected portions of the AI-generated summary.
+            This page organizes my AI news analyses by theme, moving from broad perspectives on AI’s past and future
+            to AGI, ASI, benchmarks, agents, and quantum computing. Each section includes the original article,
+            the AI tools used, and an interactive summary presented through images, audio, or video.
           </p>
 
           <div class="hero-grid">
             <div class="hero-mini">
               <h3>Past and Future</h3>
-              <p>Agile thinking, human-centered adoption, and leadership in AI-enabled teams.</p>
+              <p>Human-centered AI adoption, agile thinking, and leadership in evolving teams.</p>
             </div>
             <div class="hero-mini">
               <h3>AGI + ASI</h3>
-              <p>Two escalating visions of future intelligence and what they might mean for AEC.</p>
+              <p>Escalating visions of future intelligence and the implications for society and AEC.</p>
             </div>
             <div class="hero-mini">
               <h3>Benchmarks + Agents</h3>
-              <p>How AI is measured and how responsibility changes as agents become more autonomous.</p>
+              <p>How AI is evaluated and how accountability changes as systems become more agentic.</p>
             </div>
             <div class="hero-mini">
               <h3>Quantum</h3>
-              <p>Emerging computation models that could reshape simulation, optimization, and materials.</p>
+              <p>Emerging models of computation with potential impact on optimization and materials.</p>
             </div>
           </div>
         </div>
@@ -522,8 +620,8 @@
             <h2>Seven News Sources</h2>
           </div>
           <p>
-            Use the jump menu to move directly to each theme. The sections below are listed in the exact
-            order requested.
+            Use the jump menu to move directly to each theme. Each theme highlights the original source,
+            both AI tools used, selected summary points, and an interactive media component.
           </p>
         </div>
 
@@ -543,13 +641,18 @@
           </aside>
 
           <div class="news-grid">
+
+            <!-- 1 -->
             <article class="news-card" id="theme-1">
               <div class="news-top">
                 <div>
                   <div class="theme-tag">1 · AI Past and Future</div>
                   <h3>Blending Agile Mindsets With AI Tools</h3>
                 </div>
-                <div class="software-tag">AI Software: Copilot</div>
+                <div class="software-group" aria-label="AI software used">
+                  <div class="software-pill">Analysis AI: Copilot</div>
+                  <div class="software-pill">Interactive Summary AI: NotebookLM</div>
+                </div>
               </div>
 
               <div class="meta-row">
@@ -563,36 +666,54 @@
 
               <div class="summary-grid">
                 <div class="summary-box">
-                  <h4>Main findings</h4>
+                  <h4>Main Findings</h4>
                   <p>
-                    Agile mindsets provide a foundation for responsible AI adoption, and the episode argues
-                    that empathy, trust, and psychological safety become more important as AI enters workflows.
+                    Agile mindsets support responsible AI adoption by emphasizing trust, adaptability,
+                    and team-based learning rather than blind automation.
                   </p>
                 </div>
                 <div class="summary-box">
-                  <h4>Broader implications</h4>
+                  <h4>Broader Society</h4>
                   <p>
-                    The discussion frames AI adoption as a human-centered leadership challenge, where ethical
-                    reflection, emotional intelligence, and intentionality matter as much as the tools themselves.
+                    The analysis frames AI adoption as a human challenge, where leadership,
+                    emotional intelligence, and transparency are essential.
                   </p>
                 </div>
                 <div class="summary-box">
-                  <h4>AEC relevance</h4>
+                  <h4>AEC Relevance</h4>
                   <p>
-                    The warning against “automating without asking why” is especially relevant to AEC, where
-                    poor automation could amplify design flaws, safety risks, or cost overruns.
+                    The message is especially relevant in AEC, where AI should strengthen decision-making
+                    rather than replace professional judgment.
                   </p>
+                </div>
+              </div>
+
+              <div class="interactive-block">
+                <div class="interactive-label">Interactive Summary</div>
+                <div class="interactive-card">
+                  <div class="media-gallery single">
+                    <figure class="media-figure">
+                      <img src="assets/images/news/ai-past-future-infographic.png" alt="Infographic summary for AI Past and Future theme" />
+                      <figcaption>
+                        NotebookLM infographic highlighting the risks of blind AI adoption and the value of human-centered practices for AI integration.
+                      </figcaption>
+                    </figure>
+                  </div>
                 </div>
               </div>
             </article>
 
+            <!-- 2 -->
             <article class="news-card" id="theme-2">
               <div class="news-top">
                 <div>
                   <div class="theme-tag">2 · Artificial General Intelligence (AGI)</div>
                   <h3>Shane Legg’s Prediction for the Arrival of AGI</h3>
                 </div>
-                <div class="software-tag">AI Software: Gemini</div>
+                <div class="software-group" aria-label="AI software used">
+                  <div class="software-pill">Analysis AI: Gemini</div>
+                  <div class="software-pill">Interactive Summary AI: NotebookLM</div>
+                </div>
               </div>
 
               <div class="meta-row">
@@ -606,41 +727,63 @@
 
               <div class="summary-grid">
                 <div class="summary-box">
-                  <h4>Main findings</h4>
+                  <h4>Main Findings</h4>
                   <p>
-                    Shane Legg argues there is a 50% chance of “Minimal AGI” by 2028 and treats AGI as a
-                    spectrum rather than an on/off event, with architectural gaps like episodic memory still to solve.
+                    AGI is presented as a spectrum, with Shane Legg suggesting a 50% probability
+                    of “Minimal AGI” by 2028.
                   </p>
                 </div>
                 <div class="summary-box">
-                  <h4>Broader implications</h4>
+                  <h4>Broader Society</h4>
                   <p>
-                    The summary highlights economic transformation, governance challenges, and frontier safety,
-                    especially the alignment problem and the need to distribute benefits fairly.
+                    AGI raises profound questions about governance, alignment, labor disruption,
+                    and the distribution of benefits.
                   </p>
                 </div>
                 <div class="summary-box">
-                  <h4>AEC relevance</h4>
+                  <h4>AEC Relevance</h4>
                   <p>
-                    AGI could move beyond generative design into autonomous reasoning around zoning, structure,
-                    materials, logistics, and strategic planning for project delivery.
+                    AGI could transform design reasoning, construction logistics, code interpretation,
+                    and multidisciplinary coordination.
                   </p>
                 </div>
               </div>
 
-              <div class="interactive-note">
-                Interactive summary created in <strong>NotebookLM</strong> as a video overview:
-                <em>CE 895 Week #2 AI News - Video Overview_Emily Nelson.mp4</em>
+              <div class="interactive-block">
+                <div class="interactive-label">Interactive Summary</div>
+                <div class="interactive-card">
+                  <div class="player-grid">
+                    <div class="player-card">
+                      <h5>Watch the Video Overview</h5>
+                      <video controls preload="metadata">
+                        <source src="assets/media/agi-video-overview.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    <div class="player-note">
+                      <h5>Media Overview</h5>
+                      <p>
+                        This NotebookLM-generated video overview summarizes the article’s core claims,
+                        major uncertainties around AGI timing, and the potential implications for society
+                        and the AEC industry.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </article>
 
+            <!-- 3 -->
             <article class="news-card" id="theme-3">
               <div class="news-top">
                 <div>
                   <div class="theme-tag">3 · Artificial Super Intelligence (ASI)</div>
                   <h3>What Is ASI? Is It Feasible and When Will We Achieve It?</h3>
                 </div>
-                <div class="software-tag">AI Software: ChatGPT</div>
+                <div class="software-group" aria-label="AI software used">
+                  <div class="software-pill">Analysis AI: ChatGPT</div>
+                  <div class="software-pill">Interactive Summary AI: NotebookLM</div>
+                </div>
               </div>
 
               <div class="meta-row">
@@ -654,41 +797,55 @@
 
               <div class="summary-grid">
                 <div class="summary-box">
-                  <h4>Main findings</h4>
+                  <h4>Main Findings</h4>
                   <p>
-                    ASI is framed as intelligence that far surpasses human capability across nearly all domains.
-                    The article presents both the feasibility argument and the major uncertainty around timelines.
+                    ASI is framed as intelligence that would exceed human capabilities across nearly every domain,
+                    with both feasibility and timing remaining uncertain.
                   </p>
                 </div>
                 <div class="summary-box">
-                  <h4>Broader implications</h4>
+                  <h4>Broader Society</h4>
                   <p>
-                    Positive visions include solving climate change, disease, and deep scientific problems,
-                    while negative scenarios include existential risk, mass disruption, and misalignment with human values.
+                    The analysis presents a tension between utopian outcomes and severe risks,
+                    making alignment and governance central concerns.
                   </p>
                 </div>
                 <div class="summary-box">
-                  <h4>AEC relevance</h4>
+                  <h4>AEC Relevance</h4>
                   <p>
-                    In AEC, ASI could transform design optimization, advanced materials discovery, autonomous
-                    construction systems, and large-scale planning, while making governance and safety more critical.
+                    Possible applications include hyper-optimized design, advanced materials discovery,
+                    and highly autonomous construction planning.
                   </p>
                 </div>
               </div>
 
-              <div class="interactive-note">
-                Interactive summary created in <strong>NotebookLM</strong> as an infographic:
-                <em>CE 895 Week #3 AI News - Infographic_Emily Nelson.png</em>
+              <div class="interactive-block">
+                <div class="interactive-label">Interactive Summary</div>
+                <div class="interactive-card">
+                  <div class="media-gallery single">
+                    <figure class="media-figure">
+                      <img src="assets/images/news/asi-infographic.png" alt="Infographic summary for artificial super intelligence theme" />
+                      <figcaption>
+                        NotebookLM infographic showing ASI’s progression from narrow AI to superintelligence,
+                        along with societal scenarios and AEC implications.
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
               </div>
             </article>
 
+            <!-- 4 -->
             <article class="news-card" id="theme-4">
               <div class="news-top">
                 <div>
                   <div class="theme-tag">4 · AI Benchmarks</div>
                   <h3>The AI Benchmark We’ve All Been Waiting For</h3>
                 </div>
-                <div class="software-tag">AI Software: Gemini</div>
+                <div class="software-group" aria-label="AI software used">
+                  <div class="software-pill">Analysis AI: Gemini</div>
+                  <div class="software-pill">Interactive Summary AI: NotebookLM</div>
+                </div>
               </div>
 
               <div class="meta-row">
@@ -702,41 +859,62 @@
 
               <div class="summary-grid">
                 <div class="summary-box">
-                  <h4>Main findings</h4>
+                  <h4>Main Findings</h4>
                   <p>
-                    OpenAI’s GDP Val benchmark shifts evaluation away from academic exams and toward
-                    economically valuable real-world work across 44 occupations and 1,320 specialized tasks.
+                    GDP Val evaluates AI based on economically valuable work rather than academic testing,
+                    making the benchmark more aligned with real-world tasks.
                   </p>
                 </div>
                 <div class="summary-box">
-                  <h4>Broader implications</h4>
+                  <h4>Broader Society</h4>
                   <p>
-                    The summary argues that society needs a “utility score” for AI so progress can be tracked
-                    in terms of meaningful value creation instead of hype or novelty.
+                    The analysis suggests AI performance should be measured through practical utility
+                    and impact rather than hype.
                   </p>
                 </div>
                 <div class="summary-box">
-                  <h4>AEC relevance</h4>
+                  <h4>AEC Relevance</h4>
                   <p>
-                    The benchmark includes engineering blueprints and multimodal professional deliverables,
-                    suggesting that future AI evaluation must reflect the actual rigor of AEC practice.
+                    Real-world benchmarks matter in AEC because AI must be evaluated against practical deliverables,
+                    drawings, workflows, and multimodal problem-solving.
                   </p>
                 </div>
               </div>
 
-              <div class="interactive-note">
-                Interactive summary created in <strong>NotebookLM</strong> as an audio overview:
-                <em>CE 895 Week #4 AI News - Audio Overview_Emily Nelson.m4a</em>
+              <div class="interactive-block">
+                <div class="interactive-label">Interactive Summary</div>
+                <div class="interactive-card">
+                  <div class="player-grid">
+                    <div class="player-card">
+                      <h5>Listen to the Audio Overview</h5>
+                      <audio controls preload="none">
+                        <source src="assets/media/ai-benchmarks-audio-overview.m4a" type="audio/mp4" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </div>
+                    <div class="player-note">
+                      <h5>Media Overview</h5>
+                      <p>
+                        This audio overview captures the shift from academic benchmarking to performance measures
+                        that better reflect value creation, applied problem-solving, and professional usefulness.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </article>
 
+            <!-- 5 -->
             <article class="news-card" id="theme-5">
               <div class="news-top">
                 <div>
                   <div class="theme-tag">5 · General AI Agents</div>
                   <h3>How Leaders Must Redesign Accountability in the Age of AI Agents</h3>
                 </div>
-                <div class="software-tag">AI Software: ChatGPT</div>
+                <div class="software-group" aria-label="AI software used">
+                  <div class="software-pill">Analysis AI: ChatGPT</div>
+                  <div class="software-pill">Interactive Summary AI: Gamma</div>
+                </div>
               </div>
 
               <div class="meta-row">
@@ -750,41 +928,55 @@
 
               <div class="summary-grid">
                 <div class="summary-box">
-                  <h4>Main findings</h4>
+                  <h4>Main Findings</h4>
                   <p>
-                    The article argues that AI is shifting from tool to decision participant, which means
-                    organizations must redesign accountability systems around decision ownership rather than tool ownership.
+                    AI is shifting from a passive tool toward a more active decision participant,
+                    forcing organizations to rethink accountability.
                   </p>
                 </div>
                 <div class="summary-box">
-                  <h4>Broader implications</h4>
+                  <h4>Broader Society</h4>
                   <p>
-                    Society will need clearer accountability chains, new governance frameworks, and stronger
-                    human oversight as AI agents influence decisions without being able to carry liability themselves.
+                    The article emphasizes that responsibility, trust, and governance must remain human-led
+                    even as AI agents become more capable.
                   </p>
                 </div>
                 <div class="summary-box">
-                  <h4>AEC relevance</h4>
+                  <h4>AEC Relevance</h4>
                   <p>
-                    The piece is highly relevant to AEC because AI-assisted design, sequencing, and safety review
-                    raise urgent questions about liability, human approval, and accountable workflows.
+                    In AEC, questions of liability become especially important when AI influences design,
+                    estimating, scheduling, or safety-related decisions.
                   </p>
                 </div>
               </div>
 
-              <div class="interactive-note">
-                Interactive summary created in <strong>Gamma</strong> as a slide deck:
-                <em>CE 895 AI News - Agent General Presentation_Emily Nelson.pdf</em>
+              <div class="interactive-block">
+                <div class="interactive-label">Interactive Summary</div>
+                <div class="interactive-card">
+                  <div class="media-gallery single">
+                    <figure class="media-figure tall">
+                      <img src="assets/images/news/general-ai-agents-slides.jpg" alt="Selected slides from general AI agents interactive summary presentation" />
+                      <figcaption>
+                        Selected slides from the Gamma presentation summarizing the shift from AI as a tool
+                        to AI as a teammate and decision participant, with implications for accountability and liability.
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
               </div>
             </article>
 
+            <!-- 6 -->
             <article class="news-card" id="theme-6">
               <div class="news-top">
                 <div>
                   <div class="theme-tag">6 · AEC Industry AI Agents</div>
                   <h3>Architecture AI Agent | Smart AI for Architectural Design</h3>
                 </div>
-                <div class="software-tag">AI Software: ChatGPT</div>
+                <div class="software-group" aria-label="AI software used">
+                  <div class="software-pill">Analysis AI: ChatGPT</div>
+                  <div class="software-pill">Interactive Summary AI: Gamma</div>
+                </div>
               </div>
 
               <div class="meta-row">
@@ -798,41 +990,55 @@
 
               <div class="summary-grid">
                 <div class="summary-box">
-                  <h4>Main findings</h4>
+                  <h4>Main Findings</h4>
                   <p>
-                    Architecture AI agents are presented as intelligent design assistants that move beyond
-                    chatbots by supporting data collection, generative design, simulations, and ongoing learning.
+                    Architecture AI agents go beyond chatbots by helping with data gathering, generative design,
+                    analysis, and design iteration.
                   </p>
                 </div>
                 <div class="summary-box">
-                  <h4>Broader implications</h4>
+                  <h4>Broader Society</h4>
                   <p>
-                    The article describes a broader shift toward data-driven decision-making, faster design cycles,
-                    sustainability optimization, and self-improving systems that alter professional roles.
+                    The article points to faster workflows, more data-driven decision-making,
+                    and the reshaping of professional roles.
                   </p>
                 </div>
                 <div class="summary-box">
-                  <h4>AEC relevance</h4>
+                  <h4>AEC Relevance</h4>
                   <p>
-                    The AEC implications are direct: AI agents can connect CAD, BIM, and simulation workflows,
-                    improve compliance, shorten design cycles, and support digital-twin-enabled infrastructure.
+                    The implications for AEC are direct: improved design speed, better compliance support,
+                    digital twin integration, and more responsive project workflows.
                   </p>
                 </div>
               </div>
 
-              <div class="interactive-note">
-                Interactive summary created in <strong>Gamma</strong> as a slide deck:
-                <em>CE 895 AI News - Agent AEC Presentation_Emily Nelson.pdf</em>
+              <div class="interactive-block">
+                <div class="interactive-label">Interactive Summary</div>
+                <div class="interactive-card">
+                  <div class="media-gallery single">
+                    <figure class="media-figure tall">
+                      <img src="assets/images/news/aec-ai-agents-slides.jpg" alt="Selected slides from AEC AI agents interactive summary presentation" />
+                      <figcaption>
+                        Selected slides from the Gamma presentation illustrating how AI agents can support architectural workflows,
+                        design quality, compliance, sustainability, and digital twins.
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
               </div>
             </article>
 
+            <!-- 7 -->
             <article class="news-card" id="theme-7">
               <div class="news-top">
                 <div>
                   <div class="theme-tag">7 · Quantum Computing</div>
                   <h3>NVIDIA Launches Ising to Accelerate Useful Quantum Computing</h3>
                 </div>
-                <div class="software-tag">AI Software: Gemini</div>
+                <div class="software-group" aria-label="AI software used">
+                  <div class="software-pill">Analysis AI: Gemini</div>
+                  <div class="software-pill">Interactive Summary AI: NotebookLM</div>
+                </div>
               </div>
 
               <div class="meta-row">
@@ -846,33 +1052,51 @@
 
               <div class="summary-grid">
                 <div class="summary-box">
-                  <h4>Main findings</h4>
+                  <h4>Main Findings</h4>
                   <p>
-                    The summary explains quantum computing through qubits, superposition, and entanglement,
-                    then highlights NVIDIA’s open-source Ising models as an AI control layer for fragile quantum systems.
+                    NVIDIA’s Ising models combine AI with quantum control systems to accelerate the path
+                    toward useful quantum computing.
                   </p>
                 </div>
                 <div class="summary-box">
-                  <h4>Broader implications</h4>
+                  <h4>Broader Society</h4>
                   <p>
-                    Faster error correction could accelerate useful quantum computing, opening the door to
-                    breakthroughs in medicine, materials, fertilizers, climate-tech, and large-scale simulation.
+                    Faster quantum progress could lead to breakthroughs in medicine, materials, logistics,
+                    and large-scale scientific simulation.
                   </p>
                 </div>
                 <div class="summary-box">
-                  <h4>AEC relevance</h4>
+                  <h4>AEC Relevance</h4>
                   <p>
-                    For AEC, quantum computing could improve advanced materials science, structural optimization,
-                    logistics, and BIM conflict resolution at scales beyond current classical computing tools.
+                    Quantum computing may eventually enhance structural optimization, advanced materials discovery,
+                    and highly complex planning workflows in the AEC industry.
                   </p>
                 </div>
               </div>
 
-              <div class="interactive-note">
-                Interactive summary created in <strong>NotebookLM</strong> as an audio overview:
-                <em>CE 895 Week AI News - Quantum Computing - Audio Overview_Emily Nelson.m4a</em>
+              <div class="interactive-block">
+                <div class="interactive-label">Interactive Summary</div>
+                <div class="interactive-card">
+                  <div class="player-grid">
+                    <div class="player-card">
+                      <h5>Listen to the Audio Overview</h5>
+                      <audio controls preload="none">
+                        <source src="assets/media/quantum-computing-audio-overview.m4a" type="audio/mp4" />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </div>
+                    <div class="player-note">
+                      <h5>Media Overview</h5>
+                      <p>
+                        This audio summary explains the core ideas behind quantum computing and why NVIDIA’s
+                        Ising model matters for future computational breakthroughs.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </article>
+
           </div>
         </div>
       </div>
@@ -883,8 +1107,8 @@
         <div class="eyebrow">Next Page</div>
         <h2>Continue to AI in AEC Use Cases</h2>
         <p>
-          After the news archive, the portfolio continues with my applied AEC use case featuring
-          the AIA Conflict Navigator custom GPT.
+          After the news archive, the portfolio continues with applied examples of AI in the AEC industry,
+          including the AIA Conflict Navigator custom GPT.
         </p>
         <a class="btn" href="use-cases.html">Go to AI in AEC Use Cases</a>
       </div>
