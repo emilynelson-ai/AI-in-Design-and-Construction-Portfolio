@@ -439,12 +439,21 @@
       padding: 1rem;
     }
 
+    .player-card audio {
+      width: 100%;
+      margin-top: 0.5rem;
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .player-note h5,
     .pdf-viewer-wrap h5 {
       font-size: 1rem;
       margin-bottom: 0.55rem;
       color: var(--dark-walnut);
     }
 
+    .player-note p,
     .pdf-viewer-wrap p {
       font-size: 0.92rem;
       color: rgba(33, 15, 4, 0.78);
@@ -749,26 +758,23 @@
                 <div class="interactive-card">
                   <div class="media-gallery three-up">
                     <figure class="media-figure">
-                      <img src="./AI News - AGI - Video Slide (1).png" alt="AGI video slide 1" />
-                      <figcaption>
-                        Slide 1 highlights Shane Legg’s prediction that there is a 50% chance Minimal AGI could be achieved by 2028.
-                      </figcaption>
+                      <img src="./AI News - AGI - Video Slide (1).png" alt="AGI NotebookLM video slide 1" />
                     </figure>
 
                     <figure class="media-figure">
-                      <img src="./AI News - AGI - Video Slide (2).png" alt="AGI video slide 2" />
-                      <figcaption>
-                        Slide 2 emphasizes the 2028 AGI countdown and frames the forecast as a major milestone in AI development.
-                      </figcaption>
+                      <img src="./AI News - AGI - Video Slide (2).png" alt="AGI NotebookLM video slide 2" />
                     </figure>
 
                     <figure class="media-figure">
-                      <img src="./AI News - AGI - Video Slide (3).png" alt="AGI video slide 3" />
-                      <figcaption>
-                        Slide 3 focuses on AEC implications, including automated design, materials discovery, project management, and strategic disruption.
-                      </figcaption>
+                      <img src="./AI News - AGI - Video Slide (3).png" alt="AGI NotebookLM video slide 3" />
                     </figure>
                   </div>
+
+                  <figure class="media-figure" style="margin-top: 1rem;">
+                    <figcaption>
+                      These three slides from the NotebookLM-generated video summary highlight the article’s central ideas about AGI timing, the uncertainty surrounding its development, and the possible implications for the AEC industry.
+                    </figcaption>
+                  </figure>
                 </div>
               </div>
             </article>
@@ -865,7 +871,6 @@
                 <div class="interactive-card">
                   <div class="player-grid">
                     <div class="player-card">
-                      <h5>Listen to the Audio Overview</h5>
                       <audio controls preload="none">
                         <source src="./AI News - AI Benchmarks - Audio Overview_compressed.m4a" type="audio/mp4" />
                         Your browser does not support the audio element.
@@ -1048,7 +1053,6 @@
                 <div class="interactive-card">
                   <div class="player-grid">
                     <div class="player-card">
-                      <h5>Listen to the Audio Overview</h5>
                       <audio controls preload="none">
                         <source src="./AI News - Quantum Computing - Audio Overview_compressed.m4a" type="audio/mp4" />
                         Your browser does not support the audio element.
