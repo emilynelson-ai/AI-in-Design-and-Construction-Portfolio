@@ -43,7 +43,6 @@
     }
 
     img,
-    video,
     iframe {
       display: block;
       max-width: 100%;
@@ -400,6 +399,10 @@
       align-items: start;
     }
 
+    .media-gallery.three-up {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
     figure.media-figure {
       background: rgba(255, 253, 250, 0.9);
       border: 1px solid rgba(33, 15, 4, 0.08);
@@ -436,26 +439,15 @@
       padding: 1rem;
     }
 
-    .player-card h5,
-    .player-note h5,
     .pdf-viewer-wrap h5 {
       font-size: 1rem;
       margin-bottom: 0.55rem;
       color: var(--dark-walnut);
     }
 
-    .player-note p,
     .pdf-viewer-wrap p {
       font-size: 0.92rem;
       color: rgba(33, 15, 4, 0.78);
-    }
-
-    audio,
-    video {
-      width: 100%;
-      margin-top: 0.5rem;
-      border-radius: 12px;
-      background: #fff;
     }
 
     .pdf-frame {
@@ -544,7 +536,8 @@
 
       .hero-grid,
       .summary-grid,
-      .player-grid {
+      .player-grid,
+      .media-gallery.three-up {
         grid-template-columns: 1fr;
       }
     }
@@ -609,7 +602,7 @@
           <p>
             This page organizes my AI news analyses by theme, moving from broad perspectives on AI’s past and future
             to AGI, ASI, benchmarks, agents, and quantum computing. Each section includes the original article,
-            the AI tools used, and an interactive summary presented through images, audio, video, or embedded presentation files.
+            the AI tools used, and an interactive summary presented through images, audio, or embedded presentation files.
           </p>
 
           <div class="hero-grid">
@@ -754,25 +747,27 @@
               <div class="interactive-block">
                 <div class="interactive-label">Interactive Summary</div>
                 <div class="interactive-card">
-                  <div class="player-grid">
-                    <div class="player-card">
-                      <h5>Watch the Video Overview</h5>
-                      <video controls preload="metadata">
-                        <source src="./AI News - AGI - Video Overview.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
-                    <div class="player-note">
-                      <h5>Media Overview</h5>
-                      <p>
-                        This NotebookLM-generated video overview summarizes the article’s core claims,
-                        major uncertainties around AGI timing, and the potential implications for society and the AEC industry.
-                      </p>
-                      <p style="margin-top: 0.75rem;">
-                        To make this play, upload the file in the same folder as <strong>news.html</strong> with this exact name:
-                        <strong>AI News - AGI - Video Overview.mp4</strong>.
-                      </p>
-                    </div>
+                  <div class="media-gallery three-up">
+                    <figure class="media-figure">
+                      <img src="./AI News - AGI - Video Slide (1).png" alt="AGI video slide 1" />
+                      <figcaption>
+                        Slide 1 highlights Shane Legg’s prediction that there is a 50% chance Minimal AGI could be achieved by 2028.
+                      </figcaption>
+                    </figure>
+
+                    <figure class="media-figure">
+                      <img src="./AI News - AGI - Video Slide (2).png" alt="AGI video slide 2" />
+                      <figcaption>
+                        Slide 2 emphasizes the 2028 AGI countdown and frames the forecast as a major milestone in AI development.
+                      </figcaption>
+                    </figure>
+
+                    <figure class="media-figure">
+                      <img src="./AI News - AGI - Video Slide (3).png" alt="AGI video slide 3" />
+                      <figcaption>
+                        Slide 3 focuses on AEC implications, including automated design, materials discovery, project management, and strategic disruption.
+                      </figcaption>
+                    </figure>
                   </div>
                 </div>
               </div>
